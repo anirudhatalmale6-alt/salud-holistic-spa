@@ -249,7 +249,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $500</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 2: Liver & Gallbladder Flush -->
@@ -264,7 +264,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $200</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 3: 5 Colon Cleanse Sessions -->
@@ -279,7 +279,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $300</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 4: Colonic Cleansing Package -->
@@ -294,7 +294,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $240</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 5: Colon Cleansing Plus Infrared BodyWrap -->
@@ -309,7 +309,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $330</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 6: Laser Hair Removal -->
@@ -324,7 +324,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $2,750 (10 sessions)</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 7: Wood Therapy Plus Cavitation or Radio Frequency -->
@@ -339,7 +339,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $1,350</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 8: Lymphatic Drainage Or Wood Massage -->
@@ -354,7 +354,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $800</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 9: Lymphatic Drainage Massage Sessions Plus Cavitation -->
@@ -369,7 +369,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $675</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 10: Mesotherapy Plus Carboxytherapy (15 Sessions) -->
@@ -384,7 +384,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $1,600</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 11: Mesotherapy Plus Carboxytherapy (5 Sessions) -->
@@ -399,7 +399,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $500</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 <!-- Package 12: Anti-Aging Facial -->
@@ -414,7 +414,7 @@ section{position:relative}
 </div>
 <span class="pkg-save-text">You save $160</span>
 </div>
-<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+<button class="btn-order" onclick="return false;">Order Now</button>
 </div>
 
 </div>
@@ -518,6 +518,23 @@ mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mobil
 const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
 reveals.forEach(el=>observer.observe(el));
+
+// Stripe checkout via Order Now buttons
+const CHECKOUT_BASE='https://client.revenuivaai.com/api/website-checkout/rv_z4wDeLbXbzj3XPZBz8EgWAgZtRTDdWsL5MoJQVOc';
+const SUCCESS_URL=window.location.origin+'/new-design/order-success.html';
+const CANCEL_URL=window.location.href;
+
+document.querySelectorAll('.btn-order').forEach(btn=>{
+btn.addEventListener('click',function(e){
+e.preventDefault();
+const card=this.closest('.pkg-card');
+const price=card.getAttribute('data-price');
+const name=card.getAttribute('data-name');
+if(!price||!name){alert('Error loading package info.');return;}
+const url=CHECKOUT_BASE+'?name='+encodeURIComponent(name)+'&price='+price+'&return_url='+encodeURIComponent(SUCCESS_URL)+'&cancel_url='+encodeURIComponent(CANCEL_URL);
+window.location.href=url;
+});
+});
 </script>
 </body>
 </html>

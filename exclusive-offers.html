@@ -801,6 +801,24 @@ tier.classList.add('selected');
 });
 });
 });
+
+// Stripe checkout via Order Now buttons
+const CHECKOUT_BASE='https://client.revenuivaai.com/api/website-checkout/rv_z4wDeLbXbzj3XPZBz8EgWAgZtRTDdWsL5MoJQVOc';
+const SUCCESS_URL=window.location.origin+'/new-design/order-success.html';
+const CANCEL_URL=window.location.href;
+
+document.querySelectorAll('.btn-offer').forEach(btn=>{
+btn.addEventListener('click',function(e){
+e.preventDefault();
+const card=this.closest('.offer-card');
+const selected=card.querySelector('.tier-option.selected');
+if(!selected){alert('Please select an option first.');return;}
+const price=selected.getAttribute('data-price');
+const name=selected.getAttribute('data-name');
+const url=CHECKOUT_BASE+'?name='+encodeURIComponent(name)+'&price='+price+'&return_url='+encodeURIComponent(SUCCESS_URL)+'&cancel_url='+encodeURIComponent(CANCEL_URL);
+window.location.href=url;
+});
+});
 </script>
 </body>
 </html>
