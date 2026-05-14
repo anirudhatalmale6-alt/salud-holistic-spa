@@ -61,42 +61,29 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .mobile-menu a:hover{color:var(--gold)}
 .mobile-menu .close-btn{position:absolute;top:28px;right:5%;background:none;border:none;font-size:2rem;cursor:pointer;color:var(--dark)}
 
-/* ============ REFUND HERO ============ */
-.refund-hero{position:relative;height:260px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--dark)}
-.refund-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(44,51,50,1) 0%,rgba(61,72,71,0.95) 50%,rgba(44,51,50,1) 100%)}
-.refund-hero::after{content:'';position:absolute;inset:0;background-image:var(--grain);background-repeat:repeat;background-size:256px 256px;opacity:.5}
-.refund-hero-accent{position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.refund-hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
-.refund-hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 24px;border:1px solid var(--gold);border-radius:100px;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .2s forwards}
-.refund-hero-badge svg{width:16px;height:16px;fill:var(--gold)}
-.refund-hero-badge span{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600}
-.refund-hero h1{font-family:var(--font-serif);font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:400;color:var(--white);line-height:1.2;letter-spacing:2px;margin-bottom:.6rem;opacity:0;animation:fadeUp .8s .4s forwards}
-.refund-hero p{font-family:var(--font-sans);font-size:.85rem;color:var(--gold-light);font-weight:500;letter-spacing:3px;text-transform:uppercase;opacity:0;animation:fadeUp .8s .6s forwards}
+/* ============ LEGAL HERO ============ */
+.legal-hero{position:relative;height:220px;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(135deg,var(--sage-dark) 0%,var(--sage) 50%,var(--sage-light) 100%)}
+.legal-hero::before{content:'';position:absolute;inset:0;background-image:var(--grain);background-repeat:repeat;background-size:256px 256px;opacity:.5}
+.legal-hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
+.legal-hero h1{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);font-weight:400;color:var(--white);line-height:1.2;letter-spacing:2px;margin-bottom:.6rem;opacity:0;animation:fadeUp .8s .3s forwards}
+.legal-hero p{font-family:var(--font-sans);font-size:.8rem;color:rgba(255,255,255,0.7);font-weight:400;letter-spacing:2px;text-transform:uppercase;opacity:0;animation:fadeUp .8s .5s forwards}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
 
-/* ============ REFUND CONTENT ============ */
-.refund-section{padding:80px 5%}
-.refund-card{max-width:800px;margin:0 auto;background:var(--white);border-radius:24px;padding:3.5rem 4rem;border:1px solid rgba(123,138,126,0.1);border-left:4px solid var(--gold);box-shadow:0 8px 40px rgba(0,0,0,0.04)}
-
-/* Policy Statement Banner */
-.policy-statement{background:linear-gradient(135deg,var(--dark),var(--dark-light));border-radius:16px;padding:2rem 2.5rem;margin-bottom:2.5rem;position:relative;overflow:hidden}
-.policy-statement::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)}
-.policy-statement h2{font-family:var(--font-serif);font-size:1.6rem;font-weight:500;color:var(--gold);margin-bottom:.8rem;letter-spacing:1px}
-.policy-statement p{font-size:.9rem;color:rgba(255,255,255,0.8);line-height:1.9;font-weight:300}
-
-/* Policy Items */
-.policy-items{display:flex;flex-direction:column;gap:1.5rem}
-.policy-item{display:flex;gap:1.5rem;padding:2rem;background:var(--cream);border-radius:16px;border:1px solid rgba(123,138,126,0.06);transition:transform .3s,box-shadow .3s}
-.policy-item:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,0.05)}
-.policy-number{flex-shrink:0;width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));display:flex;align-items:center;justify-content:center;font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--white)}
-.policy-item-content h3{font-family:var(--font-serif);font-size:1.35rem;font-weight:500;color:var(--dark);margin-bottom:.5rem;letter-spacing:.5px}
-.policy-item-content p{font-size:.88rem;color:var(--dark);line-height:1.9;font-weight:300}
-.policy-item-content .highlight{color:var(--gold-dark);font-weight:500}
-
-/* Acknowledgement */
-.refund-acknowledgement{margin-top:2.5rem;padding:2rem;background:rgba(197,160,89,0.06);border:1px solid rgba(197,160,89,0.2);border-radius:16px;text-align:center}
-.refund-acknowledgement p{font-size:.85rem;color:var(--dark);line-height:1.8;font-weight:400}
-.refund-acknowledgement strong{color:var(--gold-dark)}
+/* ============ LEGAL CONTENT ============ */
+.legal-section{padding:80px 5%}
+.legal-card{max-width:800px;margin:0 auto;background:var(--white);border-radius:24px;padding:3.5rem 4rem;border:1px solid rgba(123,138,126,0.1);box-shadow:0 8px 40px rgba(0,0,0,0.04)}
+.legal-card h2{font-family:var(--font-serif);font-size:1.8rem;font-weight:500;color:var(--dark);margin-bottom:1rem;margin-top:2.5rem;letter-spacing:1px;padding-bottom:.6rem;border-bottom:1px solid rgba(123,138,126,0.1)}
+.legal-card h2:first-child{margin-top:0}
+.legal-card h3{font-family:var(--font-serif);font-size:1.3rem;font-weight:500;color:var(--sage-dark);margin-bottom:.6rem;margin-top:1.8rem}
+.legal-card p{font-size:.9rem;color:var(--dark);line-height:1.9;margin-bottom:1rem;font-weight:300}
+.legal-card ul{list-style:none;margin-bottom:1.2rem;padding-left:0}
+.legal-card ul li{position:relative;padding-left:24px;font-size:.9rem;color:var(--dark);line-height:1.9;margin-bottom:.5rem;font-weight:300}
+.legal-card ul li::before{content:'';position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--sage-light);opacity:.6}
+.legal-intro{font-size:.95rem!important;color:var(--sage-dark)!important;font-weight:400!important;line-height:2!important;padding-bottom:1.5rem;border-bottom:1px solid rgba(123,138,126,0.1);margin-bottom:2rem}
+.legal-contact{margin-top:2.5rem;padding:2rem;background:var(--cream);border-radius:16px;border:1px solid rgba(123,138,126,0.08)}
+.legal-contact h3{margin-top:0;color:var(--dark)}
+.legal-contact a{color:var(--sage-dark);text-decoration:none;transition:color .3s}
+.legal-contact a:hover{color:var(--gold)}
 
 /* ============ REVEAL ============ */
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.23,1,.32,1),transform .8s cubic-bezier(.23,1,.32,1)}
@@ -137,14 +124,12 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-links,.nav-social{display:none}
 .hamburger{display:block}
 .mobile-menu{display:flex}
-.refund-card{padding:2rem 1.5rem}
-.policy-statement{padding:1.5rem}
-.policy-item{flex-direction:column;gap:1rem;padding:1.5rem}
+.legal-card{padding:2rem 1.5rem}
 .footer-top{grid-template-columns:1fr}
 .footer-bottom{flex-direction:column;text-align:center}
 .footer-legal{justify-content:center}
 .footer-copy{text-align:center}
-.refund-section{padding:50px 5%}
+.legal-section{padding:50px 5%}
 }
 </style>
 </head>
@@ -184,78 +169,41 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 <a href="contacts.html">Contacts</a>
 </div>
 
-<!-- ============ REFUND HERO ============ -->
-<section class="refund-hero">
-<div class="refund-hero-accent"></div>
-<div class="refund-hero-content">
-<div class="refund-hero-badge">
-<svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-<span>Strictly Enforced</span>
-</div>
+<!-- ============ LEGAL HERO ============ -->
+<section class="legal-hero">
+<div class="legal-hero-content">
 <h1>Non-Refund Policy</h1>
 <p>All Sales Are Final</p>
 </div>
 </section>
 
-<!-- ============ REFUND CONTENT ============ -->
-<section class="refund-section">
-<div class="refund-card reveal">
+<!-- ============ LEGAL CONTENT ============ -->
+<section class="legal-section">
+<div class="legal-card reveal">
 
-<!-- Policy Statement -->
-<div class="policy-statement">
-<h2>Policy Statement</h2>
-<p>At Salud! Holistic SPA, our providers dedicate specific time and resources to your wellness journey. To maintain this high standard of care, we operate under a <strong style="color:var(--gold-light)">Strict Non-Refund Policy</strong>.</p>
-</div>
+<p class="legal-intro">At Salud! Holistic SPA, our providers dedicate specific time and resources to your wellness journey. To maintain this high standard of care, we operate under a Strict Non-Refund Policy.</p>
 
-<!-- Policy Items -->
-<div class="policy-items">
+<h2>Final Sale</h2>
+<p>All purchases for "Today's Exclusive Offers" and "Package Super Offers" are final. No monetary refunds will be issued once a purchase is completed.</p>
 
-<div class="policy-item reveal reveal-delay-1">
-<div class="policy-number">1</div>
-<div class="policy-item-content">
-<h3>Final Sale</h3>
-<p>All purchases for <span class="highlight">"Today's Exclusive Offers"</span> and <span class="highlight">"Package Super Offers"</span> are final. No monetary refunds will be issued once a purchase is completed.</p>
-</div>
-</div>
+<h2>Cancellations</h2>
+<p>Appointments cancelled with less than 24 hours' notice will be charged the full service amount. We strongly recommend providing adequate notice if you are unable to attend your scheduled appointment.</p>
 
-<div class="policy-item reveal reveal-delay-2">
-<div class="policy-number">2</div>
-<div class="policy-item-content">
-<h3>Cancellations</h3>
-<p>Appointments cancelled with <span class="highlight">less than 24 hours' notice</span> will be charged the full service amount. We strongly recommend providing adequate notice if you are unable to attend your scheduled appointment.</p>
-</div>
-</div>
+<h2>No-Shows</h2>
+<p>Failure to arrive for a scheduled appointment results in a 100% forfeiture of the service fee. Our providers reserve their time exclusively for you, and no-shows prevent other clients from accessing care.</p>
 
-<div class="policy-item reveal reveal-delay-3">
-<div class="policy-number">3</div>
-<div class="policy-item-content">
-<h3>No-Shows</h3>
-<p>Failure to arrive for a scheduled appointment results in a <span class="highlight">100% forfeiture of the service fee</span>. Our providers reserve their time exclusively for you, and no-shows prevent other clients from accessing care.</p>
-</div>
-</div>
+<h2>Rescheduling</h2>
+<p>We allow a one-time rescheduling of your appointment if requested at least 48 hours in advance, subject to availability. Additional rescheduling requests are not guaranteed.</p>
 
-<div class="policy-item reveal reveal-delay-4">
-<div class="policy-number">4</div>
-<div class="policy-item-content">
-<h3>Rescheduling</h3>
-<p>We allow a <span class="highlight">one-time rescheduling</span> of your appointment if requested at least <span class="highlight">48 hours in advance</span>, subject to availability. Additional rescheduling requests are not guaranteed.</p>
-</div>
-</div>
+<h2>Gift Cards and Packages</h2>
+<p>Gift cards and service packages are non-transferable and cannot be redeemed for cash. They must be used by the original purchaser or designated recipient within the validity period stated at the time of purchase.</p>
 
-<div class="policy-item reveal reveal-delay-5">
-<div class="policy-number">5</div>
-<div class="policy-item-content">
-<h3>Gift Cards and Packages</h3>
-<p>Gift cards and service packages are <span class="highlight">non-transferable</span> and cannot be redeemed for cash. They must be used by the original purchaser or designated recipient within the validity period stated at the time of purchase.</p>
-</div>
-</div>
-
-</div>
-
-<!-- Acknowledgement -->
-<div class="refund-acknowledgement reveal">
-<p><strong>By completing a purchase or booking with Salud! Holistic SPA, you acknowledge that you have read, understood, and agree to this Non-Refund Policy.</strong></p>
-<p style="margin-top:.8rem;font-size:.8rem;color:var(--sage)">For questions about this policy, contact us at <a href="mailto:customerservice@saludholisticspa.com" style="color:var(--gold);text-decoration:none;font-weight:500">customerservice@saludholisticspa.com</a> or call <a href="tel:+19177639324" style="color:var(--gold);text-decoration:none;font-weight:500">+1 (917) 763-9324</a></p>
+<div class="legal-contact">
+<h3>Acknowledgement</h3>
+<p>By completing a purchase or booking with Salud! Holistic SPA, you acknowledge that you have read, understood, and agree to this Non-Refund Policy.</p>
+<p>For questions about this policy, contact us at
+<a href="mailto:customerservice@saludholisticspa.com">customerservice@saludholisticspa.com</a> or call
+<a href="tel:+19177639480">+1 (917) 763.9480</a></p>
 </div>
 
 </div>
