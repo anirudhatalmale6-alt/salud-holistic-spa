@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Package Super Offers | Salud! Holistic SPA</title>
-<meta name="description" content="Invest in your wellness journey with curated packages at Salud! Holistic SPA. Essential, Signature, and Platinum tiers with up to 33% savings per session.">
+<meta name="description" content="Save hundreds with our curated wellness packages at Salud! Holistic SPA in the Bronx. Colonics, body contouring, laser hair removal, detox programs and more.">
 <link rel="icon" type="image/svg+xml" href="assets/site-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo img{height:72px;width:auto;transition:transform .3s}
 .nav-logo:hover img{transform:scale(1.05)}
-.nav-logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--sage);letter-spacing:3px;text-transform:uppercase}
+.nav-logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--sage);letter-spacing:3px;text-transform:uppercase;transition:color .3s}
+.nav-logo:hover .nav-logo-text{color:var(--gold)}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
 .nav-links a{text-decoration:none;color:var(--dark);font-size:.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
@@ -87,52 +88,30 @@ section{position:relative}
 .reveal-delay-3{transition-delay:.3s}
 .reveal-delay-4{transition-delay:.4s}
 
-/* ============ PRICING CARDS ============ */
+/* ============ PACKAGES GRID ============ */
 .pricing-section{padding:80px 5% 60px}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1100px;margin:0 auto;align-items:center}
-.pricing-card{position:relative;border-radius:28px;padding:3rem 2.5rem;text-align:center;transition:all .5s cubic-bezier(.23,1,.32,1);overflow:hidden}
-.pricing-card:hover{transform:translateY(-8px)}
+.pricing-intro{text-align:center;margin-bottom:4rem}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1300px;margin:0 auto}
 
-/* Essential */
-.pricing-card.essential{background:var(--white);border:2px solid var(--sage-light)}
-.pricing-card.essential:hover{border-color:var(--sage);box-shadow:0 20px 60px rgba(123,138,126,0.15)}
+.pkg-card{position:relative;background:rgba(255,255,255,0.7);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border:1px solid rgba(123,138,126,0.12);border-radius:24px;padding:2.2rem 1.8rem 2rem;display:flex;flex-direction:column;transition:all .5s cubic-bezier(.23,1,.32,1);overflow:hidden}
+.pkg-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--sage),var(--gold));opacity:0;transition:opacity .4s}
+.pkg-card:hover{transform:translateY(-8px);border-color:rgba(197,160,89,0.3);box-shadow:0 24px 64px rgba(44,51,50,0.1)}
+.pkg-card:hover::before{opacity:1}
 
-/* Signature */
-.pricing-card.signature{background:var(--white);border:2px solid var(--gold);transform:scale(1.04);z-index:2;box-shadow:0 24px 64px rgba(197,160,89,0.15)}
-.pricing-card.signature:hover{transform:scale(1.04) translateY(-8px);box-shadow:0 32px 80px rgba(197,160,89,0.2)}
-.popular-badge{position:absolute;top:0;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--white);padding:8px 28px;border-radius:0 0 16px 16px;font-size:.65rem;font-weight:600;letter-spacing:3px;text-transform:uppercase}
+.pkg-savings-badge{position:absolute;top:16px;right:16px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));color:var(--white);font-size:.65rem;font-weight:600;letter-spacing:1px;padding:6px 12px;border-radius:100px;text-transform:uppercase}
 
-/* Platinum */
-.pricing-card.platinum{background:var(--dark);border:2px solid rgba(197,160,89,0.3);color:var(--white)}
-.pricing-card.platinum:hover{border-color:var(--gold);box-shadow:0 20px 60px rgba(44,51,50,0.3)}
-.pricing-card.platinum .card-tier{color:var(--gold-light)}
-.pricing-card.platinum .card-price{color:var(--white)}
-.pricing-card.platinum .card-per-session{color:rgba(255,255,255,0.5)}
-.pricing-card.platinum .card-sessions{color:rgba(255,255,255,0.5);border-color:rgba(255,255,255,0.1)}
-.pricing-card.platinum .feature-list li{color:rgba(255,255,255,0.7)}
-.pricing-card.platinum .feature-list li svg{fill:var(--gold)}
-.pricing-card.platinum .feature-list li.inactive{color:rgba(255,255,255,0.25)}
-.pricing-card.platinum .btn-package{background:var(--gold);color:var(--dark)}
-.pricing-card.platinum .btn-package:hover{background:var(--gold-light);box-shadow:0 8px 25px rgba(197,160,89,0.4)}
+.pkg-name{font-family:var(--font-serif);font-size:1.35rem;font-weight:600;color:var(--dark);line-height:1.3;margin-bottom:.6rem;padding-right:80px;letter-spacing:.3px}
+.pkg-description{font-size:.82rem;color:var(--sage);line-height:1.7;font-weight:300;margin-bottom:1.5rem;flex-grow:1}
 
-.card-tier{font-family:var(--font-sans);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--sage);margin-bottom:.8rem;font-weight:500}
-.card-price{font-family:var(--font-serif);font-size:3.5rem;font-weight:600;color:var(--dark);line-height:1;margin-bottom:.4rem}
-.card-price sup{font-size:1.5rem;font-weight:400;vertical-align:super;margin-right:2px}
-.card-per-session{font-size:.8rem;color:var(--sage);font-weight:400;margin-bottom:1.2rem}
-.card-sessions{font-size:.85rem;color:var(--sage);font-weight:500;padding-bottom:1.8rem;margin-bottom:1.8rem;border-bottom:1px solid rgba(123,138,126,0.15)}
+.pkg-pricing{border-top:1px solid rgba(123,138,126,0.1);padding-top:1.3rem;margin-bottom:1.5rem}
+.pkg-price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:.4rem}
+.pkg-price{font-family:var(--font-serif);font-size:2.4rem;font-weight:700;color:var(--dark);line-height:1}
+.pkg-price sup{font-size:1.1rem;font-weight:400;vertical-align:super}
+.pkg-original{font-size:.8rem;color:var(--sage-light);text-decoration:line-through;font-weight:400}
+.pkg-save-text{font-size:.75rem;color:var(--gold-dark);font-weight:500;letter-spacing:.5px}
 
-.feature-list{list-style:none;text-align:left;margin-bottom:2.5rem}
-.feature-list li{display:flex;align-items:center;gap:10px;padding:.6rem 0;font-size:.85rem;color:var(--dark);font-weight:300}
-.feature-list li svg{width:18px;height:18px;fill:var(--sage);flex-shrink:0}
-.feature-list li.inactive{opacity:.35}
-.feature-list li.inactive svg{fill:var(--sage-light)}
-.feature-list li.gold-feature svg{fill:var(--gold)}
-.feature-list li.gold-feature{font-weight:500}
-
-.btn-package{display:block;width:100%;padding:16px;background:var(--sage);color:var(--white);font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;text-align:center;border-radius:100px;border:none;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1)}
-.btn-package:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,160,89,0.3)}
-.pricing-card.signature .btn-package{background:var(--gold);color:var(--white)}
-.pricing-card.signature .btn-package:hover{background:var(--gold-dark);box-shadow:0 8px 25px rgba(197,160,89,0.4)}
+.btn-order{display:block;width:100%;padding:14px;background:var(--sage);color:var(--white);font-family:var(--font-sans);font-size:.72rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;text-align:center;border-radius:100px;border:none;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.btn-order:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,160,89,0.3)}
 
 /* ============ HOW IT WORKS ============ */
 .how-it-works{background:var(--cream-dark);padding:100px 5%}
@@ -184,9 +163,7 @@ section{position:relative}
 
 /* ============ RESPONSIVE ============ */
 @media(max-width:1024px){
-.pricing-grid{grid-template-columns:1fr;max-width:420px}
-.pricing-card.signature{transform:scale(1)}
-.pricing-card.signature:hover{transform:translateY(-8px)}
+.pricing-grid{grid-template-columns:repeat(2,1fr);max-width:800px}
 .steps-grid{grid-template-columns:1fr;max-width:400px}
 .footer-top{grid-template-columns:1fr 1fr}
 }
@@ -194,8 +171,8 @@ section{position:relative}
 .nav-links,.nav-social{display:none}
 .hamburger{display:block}
 .mobile-menu{display:flex}
-.pricing-grid{max-width:100%}
-.pricing-card{padding:2.5rem 1.8rem}
+.pricing-grid{grid-template-columns:1fr;max-width:420px}
+.pkg-card{padding:2rem 1.5rem 1.8rem}
 .footer-top{grid-template-columns:1fr}
 .footer-bottom{flex-direction:column;text-align:center}
 .footer-legal{justify-content:center}
@@ -211,7 +188,7 @@ section{position:relative}
 <nav class="navbar" id="navbar">
 <div class="navbar-inner">
 <a href="index.html" class="nav-logo">
-<img src="assets/logo.svg" alt="Salud! Holistic SPA">
+<span class="nav-logo-text">Salud Holistic Spa</span>
 </a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -247,118 +224,197 @@ section{position:relative}
 <div class="page-hero-content">
 <p class="page-hero-eyebrow">Curated Wellness</p>
 <h1>Package Super Offers</h1>
-<p>Invest in your wellness journey with our curated packages.</p>
+<p>Invest in your wellness journey with our curated packages and save hundreds.</p>
 </div>
 </section>
 
-<!-- ============ PRICING CARDS ============ -->
+<!-- ============ PACKAGES GRID ============ -->
 <section class="pricing-section">
+<div class="pricing-intro reveal">
+<p class="section-label">Exclusive Packages</p>
+<h2 class="section-title" style="text-align:center">Transformative Savings</h2>
+<p class="section-subtitle" style="text-align:center;margin:0 auto">Bundled treatments designed to deliver lasting results at exceptional value.</p>
+</div>
 <div class="pricing-grid">
 
-<!-- Essential -->
-<div class="pricing-card essential reveal reveal-delay-1">
-<p class="card-tier">Essential</p>
-<div class="card-price"><sup>$</sup>249</div>
-<p class="card-per-session">$83 per session</p>
-<p class="card-sessions">3 Sessions</p>
-<ul class="feature-list">
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-3 wellness sessions
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Mix &amp; match any treatment
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Priority booking
-</li>
-<li class="inactive">
-<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-Complimentary aromatherapy
-</li>
-<li class="inactive">
-<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-VIP lounge access
-</li>
-<li class="inactive">
-<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-Personal wellness consultant
-</li>
-</ul>
-<a href="booking.html" class="btn-package">Choose Package</a>
+<!-- Package 1: 40 Day Holistic Diet -->
+<div class="pkg-card reveal reveal-delay-1" data-package="40-day-holistic-diet" data-price="400" data-name="40 Day Holistic Diet">
+<div class="pkg-savings-badge">Save 56%</div>
+<h3 class="pkg-name">40 Day Holistic Diet</h3>
+<p class="pkg-description">Complete 40-day cycle designed for transformative results. Lose one pound per day with our guided holistic nutrition and detox program.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>400</span>
+<span class="pkg-original">Value $900</span>
+</div>
+<span class="pkg-save-text">You save $500</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
 </div>
 
-<!-- Signature -->
-<div class="pricing-card signature reveal reveal-delay-2">
-<div class="popular-badge">Most Popular</div>
-<p class="card-tier" style="margin-top:1rem">Signature</p>
-<div class="card-price"><sup>$</sup>449</div>
-<p class="card-per-session">$75 per session</p>
-<p class="card-sessions">6 Sessions</p>
-<ul class="feature-list">
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-6 wellness sessions
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Mix &amp; match any treatment
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Priority booking
-</li>
-<li class="gold-feature">
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Complimentary aromatherapy
-</li>
-<li class="inactive">
-<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-VIP lounge access
-</li>
-<li class="inactive">
-<svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-Personal wellness consultant
-</li>
-</ul>
-<a href="booking.html" class="btn-package">Choose Package</a>
+<!-- Package 2: Liver & Gallbladder Flush -->
+<div class="pkg-card reveal reveal-delay-2" data-package="liver-gallbladder-flush" data-price="500" data-name="Liver & Gallbladder Flush">
+<div class="pkg-savings-badge">Save 29%</div>
+<h3 class="pkg-name">Liver &amp; Gallbladder Flush</h3>
+<p class="pkg-description">2 complete detox cycles with a full body kit included. Deep internal cleansing to support liver and gallbladder function and overall vitality.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>500</span>
+<span class="pkg-original">Value $700</span>
+</div>
+<span class="pkg-save-text">You save $200</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
 </div>
 
-<!-- Platinum -->
-<div class="pricing-card platinum reveal reveal-delay-3">
-<p class="card-tier">Platinum</p>
-<div class="card-price"><sup>$</sup>799</div>
-<p class="card-per-session">$67 per session</p>
-<p class="card-sessions">12 Sessions</p>
-<ul class="feature-list">
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-12 wellness sessions
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Mix &amp; match any treatment
-</li>
-<li>
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Priority booking
-</li>
-<li class="gold-feature">
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Complimentary aromatherapy
-</li>
-<li class="gold-feature">
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-VIP lounge access
-</li>
-<li class="gold-feature">
-<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
-Personal wellness consultant
-</li>
-</ul>
-<a href="booking.html" class="btn-package">Choose Package</a>
+<!-- Package 3: 5 Colon Cleanse Sessions -->
+<div class="pkg-card reveal reveal-delay-3" data-package="5-colon-cleanse" data-price="325" data-name="5 Colon Cleanse Sessions">
+<div class="pkg-savings-badge">Save 48%</div>
+<h3 class="pkg-name">5 Colon Cleanse Sessions</h3>
+<p class="pkg-description">5 professional colonic sessions plus optional coffee enema add-on at $35 per session. Thorough internal cleansing for digestive health.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>325</span>
+<span class="pkg-original">Value $625</span>
+</div>
+<span class="pkg-save-text">You save $300</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 4: Colonic Cleansing Package -->
+<div class="pkg-card reveal reveal-delay-1" data-package="colonic-cleansing-4" data-price="260" data-name="Colonic Cleansing Package">
+<div class="pkg-savings-badge">Save 48%</div>
+<h3 class="pkg-name">Colonic Cleansing Package</h3>
+<p class="pkg-description">4 professional colonic sessions for a comprehensive cleanse. Restore balance and support your body's natural detoxification process.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>260</span>
+<span class="pkg-original">Value $500</span>
+</div>
+<span class="pkg-save-text">You save $240</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 5: Colon Cleansing Plus Infrared BodyWrap -->
+<div class="pkg-card reveal reveal-delay-2" data-package="colon-cleansing-infrared" data-price="550" data-name="Colon Cleansing Plus Infrared BodyWrap">
+<div class="pkg-savings-badge">Save 38%</div>
+<h3 class="pkg-name">Colon Cleansing Plus Infrared BodyWrap</h3>
+<p class="pkg-description">4 sessions combining colonic cleansing with infrared body wrap therapy. Dual-action detox and rejuvenation for total body renewal.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>550</span>
+<span class="pkg-original">Value $880</span>
+</div>
+<span class="pkg-save-text">You save $330</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 6: Laser Hair Removal -->
+<div class="pkg-card reveal reveal-delay-3" data-package="laser-hair-removal" data-price="1000" data-name="Laser Hair Removal (10 Sessions)">
+<div class="pkg-savings-badge">Save 73%</div>
+<h3 class="pkg-name">Laser Hair Removal</h3>
+<p class="pkg-description">Full body laser hair removal including stomach. 1 session at $120 (save $255) or 10 sessions at $1,000 for maximum savings and smooth, lasting results.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>1,000</span>
+<span class="pkg-original">Value $3,750</span>
+</div>
+<span class="pkg-save-text">You save $2,750 (10 sessions)</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 7: Wood Therapy Plus Cavitation or Radio Frequency -->
+<div class="pkg-card reveal reveal-delay-1" data-package="wood-therapy-cavitation" data-price="1400" data-name="Wood Therapy Plus Cavitation or Radio Frequency">
+<div class="pkg-savings-badge">Save 49%</div>
+<h3 class="pkg-name">Wood Therapy Plus Cavitation or Radio Frequency</h3>
+<p class="pkg-description">10 sessions of wood therapy combined with your choice of ultrasonic cavitation or radio frequency. Sculpt and contour your body naturally.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>1,400</span>
+<span class="pkg-original">Value $2,750</span>
+</div>
+<span class="pkg-save-text">You save $1,350</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 8: Lymphatic Drainage Or Wood Massage -->
+<div class="pkg-card reveal reveal-delay-2" data-package="lymphatic-drainage-wood" data-price="1000" data-name="Lymphatic Drainage Or Wood Massage">
+<div class="pkg-savings-badge">Save 44%</div>
+<h3 class="pkg-name">Lymphatic Drainage Or Wood Massage</h3>
+<p class="pkg-description">10 sessions of lymphatic drainage or wood massage therapy. Reduce fluid retention, boost circulation, and promote natural detoxification.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>1,000</span>
+<span class="pkg-original">Value $1,800</span>
+</div>
+<span class="pkg-save-text">You save $800</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 9: Lymphatic Drainage Massage Sessions Plus Cavitation -->
+<div class="pkg-card reveal reveal-delay-3" data-package="lymphatic-cavitation" data-price="700" data-name="Lymphatic Drainage Massage Sessions Plus Cavitation">
+<div class="pkg-savings-badge">Save 49%</div>
+<h3 class="pkg-name">Lymphatic Drainage Massage Plus Cavitation</h3>
+<p class="pkg-description">5 sessions combining lymphatic drainage massage with ultrasonic cavitation. Target stubborn areas while supporting your lymphatic system.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>700</span>
+<span class="pkg-original">Value $1,375</span>
+</div>
+<span class="pkg-save-text">You save $675</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 10: Mesotherapy Plus Carboxytherapy (15 Sessions) -->
+<div class="pkg-card reveal reveal-delay-1" data-package="meso-carboxy-15" data-price="1400" data-name="Mesotherapy Plus Carboxytherapy (15 Sessions)">
+<div class="pkg-savings-badge">Save 53%</div>
+<h3 class="pkg-name">Mesotherapy Plus Carboxytherapy (15 Sessions)</h3>
+<p class="pkg-description">15 sessions each of mesotherapy and carboxytherapy. Targets cellulite, stretch marks, and skin tightening for comprehensive body transformation.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>1,400</span>
+<span class="pkg-original">Value $3,000</span>
+</div>
+<span class="pkg-save-text">You save $1,600</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 11: Mesotherapy Plus Carboxytherapy (5 Sessions) -->
+<div class="pkg-card reveal reveal-delay-2" data-package="meso-carboxy-5" data-price="500" data-name="Mesotherapy Plus Carboxytherapy (5 Sessions)">
+<div class="pkg-savings-badge">Save 50%</div>
+<h3 class="pkg-name">Mesotherapy Plus Carboxytherapy (5 Sessions)</h3>
+<p class="pkg-description">5 sessions each of mesotherapy and carboxytherapy. Effective fat reduction and skin improvement in a shorter treatment plan.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>500</span>
+<span class="pkg-original">Value $1,000</span>
+</div>
+<span class="pkg-save-text">You save $500</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
+</div>
+
+<!-- Package 12: Anti-Aging Facial -->
+<div class="pkg-card reveal reveal-delay-3" data-package="anti-aging-facial" data-price="125" data-name="Anti-Aging Facial">
+<div class="pkg-savings-badge">Save 56%</div>
+<h3 class="pkg-name">Anti-Aging Facial</h3>
+<p class="pkg-description">1 luxurious session with Facial Radio-Frequency, Oxygen-Infusion, and Vitamin C Serum. Rejuvenate and restore youthful radiance in a single visit.</p>
+<div class="pkg-pricing">
+<div class="pkg-price-row">
+<span class="pkg-price"><sup>$</sup>125</span>
+<span class="pkg-original">Value $285</span>
+</div>
+<span class="pkg-save-text">You save $160</span>
+</div>
+<button class="btn-order" onclick="window.location.href='booking.html'">Order Now</button>
 </div>
 
 </div>
@@ -374,12 +430,12 @@ Personal wellness consultant
 <div class="step-card reveal reveal-delay-1">
 <div class="step-number">1</div>
 <h3>Choose</h3>
-<p>Select the package tier that best fits your wellness goals and lifestyle. Every package lets you mix and match from our full treatment menu.</p>
+<p>Select the package that best fits your wellness goals. Each package is designed to deliver transformative results at unbeatable savings.</p>
 </div>
 <div class="step-card reveal reveal-delay-2">
 <div class="step-number">2</div>
 <h3>Schedule</h3>
-<p>Book your sessions at your convenience through our online booking system. Enjoy priority scheduling so you always get the times you want.</p>
+<p>Book your sessions at your convenience through our online booking system or by calling us directly. We work around your schedule.</p>
 </div>
 <div class="step-card reveal reveal-delay-3">
 <div class="step-number">3</div>
@@ -410,7 +466,7 @@ Personal wellness consultant
 <div class="footer-top">
 <div class="footer-brand">
 <h3>SALUD!</h3>
-<p>A holistic wellness destination where ancient healing meets modern luxury. Your sanctuary in the Bronx.</p>
+<p>A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
 <div class="footer-social">
 <a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>

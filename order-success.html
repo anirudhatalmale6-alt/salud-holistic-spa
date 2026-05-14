@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed | Salud Holistic Spa</title>
+<link rel="icon" type="image/svg+xml" href="assets/site-icon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--sage:#7B8A7E;--sage-light:#97a59b;--sage-dark:#5d6b60;
+--cream:#F9F7F2;--cream-dark:#EDE9E0;
+--gold:#C5A059;--gold-light:#d4b87a;--gold-dark:#a88640;
+--dark:#2C3332;--dark-light:#3d4847;
+--white:#ffffff;
+--font-serif:'Cormorant Garamond',Georgia,serif;
+--font-sans:'Montserrat',system-ui,sans-serif;
+--grain:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-sans);background:var(--cream);color:var(--dark);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;background-image:var(--grain);background-repeat:repeat;background-size:256px 256px;opacity:1}
+::selection{background:var(--gold);color:var(--white)}
+
+.success-page{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 2rem;text-align:center}
+.success-card{max-width:600px;background:var(--white);border-radius:32px;padding:4rem 3rem;border:1px solid rgba(123,138,126,0.12);box-shadow:0 24px 80px rgba(0,0,0,0.06);position:relative;overflow:hidden}
+.success-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--sage),var(--gold),var(--sage))}
+
+.success-icon{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--sage-dark));display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:popIn .6s cubic-bezier(.23,1,.32,1)}
+.success-icon svg{width:40px;height:40px;fill:var(--white)}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+
+.success-card h1{font-family:var(--font-serif);font-size:2.5rem;font-weight:400;color:var(--dark);margin-bottom:.5rem;letter-spacing:1px}
+.success-card .subtitle{font-size:1rem;color:var(--sage);margin-bottom:2.5rem;font-weight:300}
+.success-card .order-details{background:var(--cream);border-radius:16px;padding:1.5rem;margin-bottom:2.5rem;text-align:left}
+.success-card .order-details p{font-size:.85rem;margin-bottom:.5rem;color:var(--dark)}
+.success-card .order-details strong{color:var(--dark);font-weight:600}
+
+.success-card .next-step{background:linear-gradient(135deg,rgba(197,160,89,0.1),rgba(123,138,126,0.08));border:1px solid rgba(197,160,89,0.2);border-radius:16px;padding:1.5rem;margin-bottom:2rem}
+.success-card .next-step h3{font-family:var(--font-serif);font-size:1.2rem;color:var(--gold-dark);margin-bottom:.5rem}
+.success-card .next-step p{font-size:.85rem;color:var(--dark);font-weight:300;line-height:1.7}
+
+.btn-booking{display:inline-flex;align-items:center;gap:10px;padding:16px 44px;background:var(--sage);color:var(--white);font-family:var(--font-sans);font-size:.8rem;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:all .5s cubic-bezier(.23,1,.32,1);margin-bottom:1rem}
+.btn-booking:hover{background:var(--gold);transform:translateY(-3px);box-shadow:0 12px 40px rgba(197,160,89,0.3)}
+.btn-home{display:inline-block;font-size:.8rem;color:var(--sage);text-decoration:none;letter-spacing:1px;transition:color .3s}
+.btn-home:hover{color:var(--gold)}
+
+@media(max-width:768px){
+.success-card{padding:3rem 2rem}
+.success-card h1{font-size:2rem}
+}
+</style>
+</head>
+<body>
+
+<div class="success-page">
+<div class="success-card">
+<div class="success-icon">
+<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+</div>
+<h1>Order Confirmed!</h1>
+<p class="subtitle">Thank you for your purchase at Salud Holistic Spa</p>
+
+<div class="order-details" id="orderDetails">
+<p><strong>Order:</strong> <span id="orderService">Your selected service</span></p>
+<p><strong>Amount:</strong> <span id="orderAmount">Paid</span></p>
+<p><strong>Confirmation:</strong> A receipt has been sent to your email.</p>
+</div>
+
+<div class="next-step">
+<h3>Next Step: Book Your Appointment</h3>
+<p>Your service has been purchased successfully. Click the button below to schedule your appointment at a time that works for you.</p>
+</div>
+
+<a href="booking.html" class="btn-booking">
+Book Your Appointment
+<svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+</a>
+<br>
+<a href="index.html" class="btn-home">Return to Homepage</a>
+</div>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const service = params.get('service');
+const amount = params.get('amount');
+if (service) document.getElementById('orderService').textContent = decodeURIComponent(service);
+if (amount) document.getElementById('orderAmount').textContent = '$' + amount;
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Today's Exclusive Offers | Salud! Holistic SPA</title>
-<meta name="description" content="Limited-time wellness deals at Salud! Holistic SPA. Save up to 31% on massage, facials, aromatherapy, and more. Offers refreshed daily.">
+<meta name="description" content="Limited-time wellness deals at Salud! Holistic SPA. Save up to 71% on colon hydrotherapy, lymphatic drainage, laser lipo, facials, and more. Offers refreshed daily.">
 <link rel="icon" type="image/svg+xml" href="assets/site-icon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -40,7 +40,8 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
 .nav-logo img{height:72px;width:auto;transition:transform .3s}
 .nav-logo:hover img{transform:scale(1.05)}
-.nav-logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--sage);letter-spacing:3px;text-transform:uppercase}
+.nav-logo-text{font-family:var(--font-serif);font-size:1.6rem;font-weight:600;color:var(--sage);letter-spacing:3px;text-transform:uppercase;transition:color .3s}
+.nav-logo:hover .nav-logo-text{color:var(--gold)}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
 .nav-links a{text-decoration:none;color:var(--dark);font-size:.8rem;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;transition:color .3s;position:relative}
 .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
@@ -101,20 +102,34 @@ section{position:relative}
 /* ============ OFFERS GRID ============ */
 .offers-section{padding:80px 5% 60px}
 .offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1200px;margin:0 auto}
-.offer-card{position:relative;border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(123,138,126,0.12);transition:all .5s cubic-bezier(.23,1,.32,1)}
+.offer-card{position:relative;border-radius:24px;overflow:hidden;background:rgba(255,255,255,0.6);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(123,138,126,0.12);transition:all .5s cubic-bezier(.23,1,.32,1);display:flex;flex-direction:column}
 .offer-card:hover{transform:translateY(-8px);box-shadow:0 24px 64px rgba(44,51,50,0.12);border-color:var(--gold)}
-.offer-card-image{position:relative;height:220px;overflow:hidden}
+.offer-card-image{position:relative;height:200px;overflow:hidden}
 .offer-card-image img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.23,1,.32,1)}
 .offer-card:hover .offer-card-image img{transform:scale(1.08)}
 .offer-card-image::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60px;background:linear-gradient(transparent,rgba(255,255,255,0.6))}
 .savings-badge{position:absolute;top:16px;right:16px;background:var(--gold);color:var(--white);padding:6px 14px;border-radius:100px;font-size:.7rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;z-index:2;box-shadow:0 4px 16px rgba(197,160,89,0.4)}
-.offer-card-body{padding:1.8rem 2rem 2rem}
-.offer-card-duration{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:.5rem;font-weight:500}
-.offer-card h3{font-family:var(--font-serif);font-size:1.5rem;font-weight:500;color:var(--dark);margin-bottom:1rem;letter-spacing:.5px}
-.offer-card-pricing{display:flex;align-items:baseline;gap:12px;margin-bottom:1.5rem}
-.price-original{font-size:1rem;color:var(--sage-light);text-decoration:line-through;font-weight:400}
-.price-sale{font-family:var(--font-serif);font-size:2.2rem;font-weight:600;color:var(--gold);line-height:1}
-.btn-offer{display:block;width:100%;padding:14px;background:var(--sage);color:var(--white);font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;text-align:center;border-radius:100px;transition:all .4s cubic-bezier(.23,1,.32,1)}
+.offer-card-body{padding:1.5rem 1.8rem 1.8rem;flex:1;display:flex;flex-direction:column}
+.offer-card-desc{font-size:.82rem;color:var(--sage);font-weight:300;line-height:1.6;margin-bottom:1.2rem}
+.offer-card h3{font-family:var(--font-serif);font-size:1.35rem;font-weight:500;color:var(--dark);margin-bottom:.6rem;letter-spacing:.5px;line-height:1.3}
+
+/* ============ PRICING TIERS ============ */
+.pricing-tiers{margin-bottom:1.5rem;flex:1}
+.tier-option{position:relative;display:flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(123,138,126,0.15);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:all .3s;background:rgba(255,255,255,0.5)}
+.tier-option:last-child{margin-bottom:0}
+.tier-option:hover{border-color:var(--sage-light);background:rgba(123,138,126,0.04)}
+.tier-option.selected{border-color:var(--gold);background:rgba(197,160,89,0.06);box-shadow:0 2px 12px rgba(197,160,89,0.1)}
+.tier-radio{width:16px;height:16px;border-radius:50%;border:2px solid var(--sage-light);position:relative;flex-shrink:0;transition:border-color .3s}
+.tier-option.selected .tier-radio{border-color:var(--gold)}
+.tier-option.selected .tier-radio::after{content:'';position:absolute;top:3px;left:3px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.tier-info{flex:1;min-width:0}
+.tier-name{font-size:.75rem;font-weight:500;color:var(--dark);letter-spacing:.5px;line-height:1.3}
+.tier-prices{display:flex;align-items:baseline;gap:8px;margin-top:2px}
+.tier-sale{font-family:var(--font-serif);font-size:1.4rem;font-weight:600;color:var(--gold);line-height:1}
+.tier-original{font-size:.78rem;color:var(--sage-light);text-decoration:line-through;font-weight:400}
+.tier-save{font-size:.65rem;color:var(--sage);font-weight:500;letter-spacing:.5px;background:rgba(123,138,126,0.08);padding:2px 8px;border-radius:100px;white-space:nowrap}
+
+.btn-offer{display:block;width:100%;padding:14px;background:var(--sage);color:var(--white);font-family:var(--font-sans);font-size:.75rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;text-align:center;border-radius:100px;border:none;cursor:pointer;transition:all .4s cubic-bezier(.23,1,.32,1)}
 .btn-offer:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,160,89,0.3)}
 
 /* ============ FINE PRINT ============ */
@@ -181,7 +196,7 @@ section{position:relative}
 <nav class="navbar" id="navbar">
 <div class="navbar-inner">
 <a href="index.html" class="nav-logo">
-<img src="assets/logo.svg" alt="Salud! Holistic SPA">
+<span class="nav-logo-text">Salud Holistic Spa</span>
 </a>
 <ul class="nav-links">
 <li><a href="index.html">Home</a></li>
@@ -239,99 +254,447 @@ section{position:relative}
 <section class="offers-section">
 <div class="offers-grid">
 
-<div class="offer-card reveal reveal-delay-1">
+<!-- 1. Colon Hydrotherapy Treatment -->
+<div class="offer-card reveal reveal-delay-1" data-service="colon-hydrotherapy">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Morning Bliss Massage" loading="lazy">
-<span class="savings-badge">Save 26%</span>
+<img src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80" alt="Colon Hydrotherapy Treatment" loading="lazy">
+<span class="savings-badge">Save 60%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">60 Minutes</p>
-<h3>Morning Bliss Massage</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$120</span>
-<span class="price-sale">$89</span>
+<h3>Colon Hydrotherapy Treatment</h3>
+<p class="offer-card-desc">Gentle internal cleansing to detoxify, improve digestion, and restore gut wellness.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="59" data-name="Colon Hydrotherapy - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$59</span>
+<span class="tier-original">$125</span>
+<span class="tier-save">Save $66</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="100" data-name="Colon Hydrotherapy - 2 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">2 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$100</span>
+<span class="tier-original">$250</span>
+<span class="tier-save">Save $150</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
-<div class="offer-card reveal reveal-delay-2">
+<!-- 2. Lymphatic Drainage Massage -->
+<div class="offer-card reveal reveal-delay-2" data-service="lymphatic-drainage">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80" alt="Glow Up Facial" loading="lazy">
-<span class="savings-badge">Save 27%</span>
+<img src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80" alt="Lymphatic Drainage Massage" loading="lazy">
+<span class="savings-badge">Save 44%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">45 Minutes</p>
-<h3>Glow Up Facial</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$95</span>
-<span class="price-sale">$69</span>
+<h3>Lymphatic Drainage Massage</h3>
+<p class="offer-card-desc">Specialized technique to reduce swelling, boost immunity, and promote natural detoxification.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="99" data-name="Lymphatic Drainage - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$99</span>
+<span class="tier-original">$175</span>
+<span class="tier-save">Save $76</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="295" data-name="Lymphatic Drainage - 3 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">3 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$295</span>
+<span class="tier-original">$525</span>
+<span class="tier-save">Save $230</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
-<div class="offer-card reveal reveal-delay-3">
+<!-- 3. Lymphatic Drainage Massage With Cavitation -->
+<div class="offer-card reveal reveal-delay-3" data-service="lymphatic-cavitation">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80" alt="Aromatherapy Escape" loading="lazy">
-<span class="savings-badge">Save 23%</span>
+<img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80" alt="Lymphatic Drainage With Cavitation" loading="lazy">
+<span class="savings-badge">Save 52%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">90 Minutes</p>
-<h3>Aromatherapy Escape</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$180</span>
-<span class="price-sale">$139</span>
+<h3>Lymphatic Drainage With Cavitation</h3>
+<p class="offer-card-desc">Advanced lymphatic therapy combined with ultrasonic cavitation for enhanced fat reduction and body contouring.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="159" data-name="Lymphatic + Cavitation - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$159</span>
+<span class="tier-original">$275</span>
+<span class="tier-save">Save $116</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="399" data-name="Lymphatic + Cavitation - 3 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">3 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$399</span>
+<span class="tier-original">$825</span>
+<span class="tier-save">Save $426</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
-<div class="offer-card reveal reveal-delay-1">
+<!-- 4. 60-Minute Massage Treatments -->
+<div class="offer-card reveal reveal-delay-1" data-service="60min-massage">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80" alt="Express Recovery" loading="lazy">
-<span class="savings-badge">Save 31%</span>
+<img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="60-Minute Massage Treatments" loading="lazy">
+<span class="savings-badge">Save 53%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">30 Minutes</p>
-<h3>Express Recovery</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$65</span>
-<span class="price-sale">$45</span>
+<h3>60-Minute Massage Treatments</h3>
+<p class="offer-card-desc">Choose wood therapy, Swedish, or deep tissue massage. Expert therapists tailored to your needs.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="89" data-name="60-Min Massage - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$89</span>
+<span class="tier-original">$180</span>
+<span class="tier-save">Save $91</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="255" data-name="60-Min Massage - 3 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">3 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$255</span>
+<span class="tier-original">$540</span>
+<span class="tier-save">Save $285</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
-<div class="offer-card reveal reveal-delay-2">
+<!-- 5. Low Laser-Lipo Treatments -->
+<div class="offer-card reveal reveal-delay-2" data-service="laser-lipo">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=800&q=80" alt="Couples Harmony" loading="lazy">
-<span class="savings-badge">Save 23%</span>
+<img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80" alt="Low Laser-Lipo Treatments" loading="lazy">
+<span class="savings-badge">Save 71%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">60 Minutes</p>
-<h3>Couples Harmony</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$220</span>
-<span class="price-sale">$169</span>
+<h3>Low Laser-Lipo Treatments</h3>
+<p class="offer-card-desc">Non-invasive laser technology to target stubborn fat cells and sculpt your ideal body contour.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="149" data-name="Laser-Lipo - 4 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">4 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$149</span>
+<span class="tier-original">$400</span>
+<span class="tier-save">Save $251</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="179" data-name="Laser-Lipo - 6 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">6 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$179</span>
+<span class="tier-original">$600</span>
+<span class="tier-save">Save $421</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="229" data-name="Laser-Lipo - 8 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">8 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$229</span>
+<span class="tier-original">$800</span>
+<span class="tier-save">Save $571</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
-<div class="offer-card reveal reveal-delay-3">
+<!-- 6. Carboxy Facial Rejuvenation -->
+<div class="offer-card reveal reveal-delay-3" data-service="carboxy-facial">
 <div class="offer-card-image">
-<img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?auto=format&fit=crop&w=800&q=80" alt="Deep Tissue Revival" loading="lazy">
-<span class="savings-badge">Save 27%</span>
+<img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=80" alt="Carboxy Facial Rejuvenation" loading="lazy">
+<span class="savings-badge">Save 40%</span>
 </div>
 <div class="offer-card-body">
-<p class="offer-card-duration">75 Minutes</p>
-<h3>Deep Tissue Revival</h3>
-<div class="offer-card-pricing">
-<span class="price-original">$150</span>
-<span class="price-sale">$109</span>
+<h3>Carboxy Facial Rejuvenation</h3>
+<p class="offer-card-desc">CO2 infusion therapy to stimulate collagen, reduce dark circles, and restore youthful radiance.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="80" data-name="Carboxy Facial - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$80</span>
+<span class="tier-original">$125</span>
+<span class="tier-save">Save $45</span>
 </div>
-<a href="booking.html" class="btn-offer">Book Now</a>
+</div>
+</div>
+<div class="tier-option" data-price="150" data-name="Carboxy Facial - 2 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">2 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$150</span>
+<span class="tier-original">$250</span>
+<span class="tier-save">Save $100</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 7. Anti-Aging Facial -->
+<div class="offer-card reveal reveal-delay-1" data-service="anti-aging-facial">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=800&q=80" alt="Anti-Aging Facial" loading="lazy">
+<span class="savings-badge">Save 59%</span>
+</div>
+<div class="offer-card-body">
+<h3>Anti-Aging Facial</h3>
+<p class="offer-card-desc">Radio-frequency skin tightening paired with Vitamin C serum to reverse signs of aging and firm your complexion.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="90" data-name="Anti-Aging Facial - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$90</span>
+<span class="tier-original">$185</span>
+<span class="tier-save">Save $95</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="150" data-name="Anti-Aging Facial - 2 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">2 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$150</span>
+<span class="tier-original">$370</span>
+<span class="tier-save">Save $220</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 8. Microdermabrasion Facial & Deep-Pore Cleansing -->
+<div class="offer-card reveal reveal-delay-2" data-service="microdermabrasion">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1596178060671-7a80dc8059ea?auto=format&fit=crop&w=800&q=80" alt="Microdermabrasion Facial" loading="lazy">
+<span class="savings-badge">Save 57%</span>
+</div>
+<div class="offer-card-body">
+<h3>Microdermabrasion Facial &amp; Deep-Pore Cleansing</h3>
+<p class="offer-card-desc">Crystal exfoliation combined with deep extraction for smoother, brighter, and healthier-looking skin.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="99" data-name="Microdermabrasion - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$99</span>
+<span class="tier-original">$168</span>
+<span class="tier-save">Save $69</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="219" data-name="Microdermabrasion - 3 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">3 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$219</span>
+<span class="tier-original">$504</span>
+<span class="tier-save">Save $285</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 9. Carboxytherapy or Mesotherapy -->
+<div class="offer-card reveal reveal-delay-3" data-service="carboxytherapy-mesotherapy">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1540555700478-4be289fbec6a?auto=format&fit=crop&w=800&q=80" alt="Carboxytherapy or Mesotherapy" loading="lazy">
+<span class="savings-badge">Save 52%</span>
+</div>
+<div class="offer-card-body">
+<h3>Carboxytherapy or Mesotherapy</h3>
+<p class="offer-card-desc">Targeted treatment for fat reduction, skin tightening, and cellulite elimination using CO2 or micro-injections.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="80" data-name="Carboxy/Meso - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$80</span>
+<span class="tier-original">$125</span>
+<span class="tier-save">Save $45</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="140" data-name="Carboxy/Meso - 2 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">2 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$140</span>
+<span class="tier-original">$250</span>
+<span class="tier-save">Save $110</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="180" data-name="Carboxy/Meso - 3 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">3 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$180</span>
+<span class="tier-original">$375</span>
+<span class="tier-save">Save $195</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 10. Laser Hair-Removal -->
+<div class="offer-card reveal reveal-delay-1" data-service="laser-hair-removal">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1598524588066-a0a1286be039?auto=format&fit=crop&w=800&q=80" alt="Laser Hair-Removal" loading="lazy">
+<span class="savings-badge">Save 63%</span>
+</div>
+<div class="offer-card-body">
+<h3>Laser Hair-Removal</h3>
+<p class="offer-card-desc">Permanent hair reduction for small areas using advanced laser technology. Smooth, lasting results.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="59" data-name="Laser Hair-Removal - 1 Session (Small Area)">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session (Small Area)</span>
+<div class="tier-prices">
+<span class="tier-sale">$59</span>
+<span class="tier-original">$160</span>
+<span class="tier-save">Save $101</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 11. Infrared Body Wrap -->
+<div class="offer-card reveal reveal-delay-2" data-service="infrared-body-wrap">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1591343395082-e120087004b4?auto=format&fit=crop&w=800&q=80" alt="Infrared Body Wrap" loading="lazy">
+<span class="savings-badge">Save 51%</span>
+</div>
+<div class="offer-card-body">
+<h3>Infrared Body Wrap</h3>
+<p class="offer-card-desc">Burn calories through deep sweating with infrared heat therapy. Detoxify, relax, and slim down naturally.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="49" data-name="Infrared Body Wrap - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$49</span>
+<span class="tier-original">$100</span>
+<span class="tier-save">Save $51</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
+</div>
+</div>
+
+<!-- 12. Sculpting Plus Carboxy Treatment -->
+<div class="offer-card reveal reveal-delay-3" data-service="sculpting-carboxy">
+<div class="offer-card-image">
+<img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&fit=crop&w=800&q=80" alt="Sculpting Plus Carboxy Treatment" loading="lazy">
+<span class="savings-badge">Save 45%</span>
+</div>
+<div class="offer-card-body">
+<h3>Sculpting Plus Carboxy Treatment</h3>
+<p class="offer-card-desc">Buttock sculpting combined with carboxytherapy for lifted, toned, and contoured results.</p>
+<div class="pricing-tiers">
+<div class="tier-option selected" data-price="125" data-name="Sculpting + Carboxy - 1 Session">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">1 Session</span>
+<div class="tier-prices">
+<span class="tier-sale">$125</span>
+<span class="tier-original">$200</span>
+<span class="tier-save">Save $75</span>
+</div>
+</div>
+</div>
+<div class="tier-option" data-price="219" data-name="Sculpting + Carboxy - 2 Sessions">
+<div class="tier-radio"></div>
+<div class="tier-info">
+<span class="tier-name">2 Sessions</span>
+<div class="tier-prices">
+<span class="tier-sale">$219</span>
+<span class="tier-original">$400</span>
+<span class="tier-save">Save $181</span>
+</div>
+</div>
+</div>
+</div>
+<button class="btn-offer">Order Now</button>
 </div>
 </div>
 
@@ -359,7 +722,7 @@ section{position:relative}
 <div class="footer-top">
 <div class="footer-brand">
 <h3>SALUD!</h3>
-<p>A holistic wellness destination where ancient healing meets modern luxury. Your sanctuary in the Bronx.</p>
+<p>A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
 <div class="footer-social">
 <a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -427,6 +790,17 @@ document.getElementById('cdSeconds').textContent=String(s).padStart(2,'0');
 }
 updateCountdown();
 setInterval(updateCountdown,1000);
+
+// Pricing tier selection
+document.querySelectorAll('.offer-card').forEach(card=>{
+const tiers=card.querySelectorAll('.tier-option');
+tiers.forEach(tier=>{
+tier.addEventListener('click',()=>{
+tiers.forEach(t=>t.classList.remove('selected'));
+tier.classList.add('selected');
+});
+});
+});
 </script>
 </body>
 </html>
