@@ -95,10 +95,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 
 /* Form message */
-.form-message{margin-top:1.5rem;padding:14px 20px;border-radius:12px;font-size:.85rem;font-weight:500;display:none;align-items:center;gap:10px}
-.form-message.success{display:flex;background:rgba(123,138,126,0.1);color:var(--sage-dark);border:1px solid rgba(123,138,126,0.2)}
+.form-message{margin-top:1.5rem;padding:20px 24px;border-radius:16px;font-size:.95rem;font-weight:500;display:none;align-items:center;gap:12px;animation:slideUp .4s ease}
+.form-message.success{display:flex;background:linear-gradient(135deg,rgba(123,138,126,0.15),rgba(90,138,100,0.12));color:var(--sage-dark);border:1px solid rgba(123,138,126,0.3);box-shadow:0 4px 20px rgba(123,138,126,0.15)}
 .form-message.error{display:flex;background:rgba(197,89,89,0.08);color:#c45959;border:1px solid rgba(197,89,89,0.2)}
-.form-message svg{width:20px;height:20px;fill:currentColor;flex-shrink:0}
+.form-message svg{width:24px;height:24px;fill:currentColor;flex-shrink:0}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 
 /* Info Cards */
 .contact-info{display:flex;flex-direction:column;gap:1.5rem}
@@ -484,14 +485,17 @@ contactForm.addEventListener('submit',async function(e){
     const result=await response.json();
     if(result.success){
       formMessage.className='form-message success';
+      formMessage.style.display='flex';
       formMessage.querySelector('.msg-icon').innerHTML='<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>';
-      formMessage.querySelector('.msg-text').textContent=result.message;
+      formMessage.querySelector('.msg-text').textContent='Thank you! Your message has been sent successfully. We will get back to you within 24 hours.';
       contactForm.reset();
+      formMessage.scrollIntoView({behavior:'smooth',block:'center'});
     } else {
       throw new Error(result.message||'Server error');
     }
   } catch(err){
     formMessage.className='form-message error';
+    formMessage.style.display='flex';
     formMessage.querySelector('.msg-icon').innerHTML='<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>';
     formMessage.querySelector('.msg-text').textContent='Something went wrong. Please try again or call us at 646.956.5774.';
   } finally {
