@@ -54,5 +54,5 @@ if ($sent) {
     echo json_encode(['success' => true, 'message' => 'Thank you! Your message has been sent. We will get back to you within 24 hours.']);
 } else {
     http_response_code(500);
-    echo json_encode(['success' => false, 'message' => 'Sorry, there was an error sending your message. Please call us at (646) 956-5774.']);
+    echo json_encode(['success' => false, 'message' => 'Sorry, there was an error sending your message. Please call us at (917) 763-9480.']);
 }
