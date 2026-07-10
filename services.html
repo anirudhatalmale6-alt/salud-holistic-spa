@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Our Services | Salud Holistic Spa</title>
+<meta name="description" content="Explore our comprehensive wellness treatments including massage therapy, carboxytherapy, mesotherapy, facials, laser treatments, and holistic detox services at Salud Holistic Spa in the Bronx.">
+<link rel="icon" href="assets/site-icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Variables ──────────────────────────── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sage:#7B8A7E;--sage-light:#97a59b;--sage-dark:#5d6b60;
+  --cream:#F9F7F2;--cream-dark:#EDE9E0;
+  --gold:#C5A059;--gold-light:#d4b87a;--gold-dark:#a88640;
+  --dark:#2C3332;--dark-light:#3d4847;
+  --white:#ffffff;
+  --font-serif:'Cormorant Garamond',Georgia,serif;
+  --font-sans:'Montserrat',system-ui,sans-serif;
+}
+::selection{background:var(--gold);color:var(--white)}
+::-moz-selection{background:var(--gold);color:var(--white)}
+
+/* ── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--cream-dark)}
+::-webkit-scrollbar-thumb{background:var(--sage-light);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--sage)}
+
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:var(--font-sans);
+  background:var(--cream);
+  color:var(--dark);
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ── Grain Overlay ──────────────────────────────── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat:repeat;
+}
+
+/* ── Navbar ─────────────────────────────────────── */
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:1.2rem 0;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+}
+.navbar.scrolled{
+  background:rgba(249,247,242,.97);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 20px rgba(44,51,50,.08);
+  padding:.8rem 0;
+}
+.navbar-inner{
+  max-width:1300px;margin:0 auto;padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-logo{text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.nav-logo-text{
+  font-family:var(--font-serif);font-size:1.6rem;font-weight:600;
+  color:var(--dark);letter-spacing:.02em;
+  transition:color .3s;
+}
+.nav-links{list-style:none;display:flex;align-items:center;gap:.3rem}
+.nav-links a{
+  text-decoration:none;color:var(--dark);
+  font-size:.82rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;
+  padding:.55rem 1rem;border-radius:6px;
+  transition:all .3s;position:relative;
+}
+.nav-links a:hover{color:var(--gold)}
+.nav-links .btn-book{
+  background:var(--sage);color:var(--white)!important;
+  padding:.55rem 1.4rem;border-radius:50px;
+  margin-left:.5rem;
+}
+.nav-links .btn-book:hover{background:var(--sage-dark);transform:translateY(-1px)}
+.nav-social a svg{width:16px;height:16px;fill:var(--dark);transition:fill .3s}
+.nav-social a:hover svg{fill:var(--gold)}
+.hamburger{
+  display:none;background:none;border:none;cursor:pointer;
+  width:28px;height:22px;position:relative;z-index:10;
+}
+.hamburger span{
+  display:block;width:100%;height:2px;background:var(--dark);
+  border-radius:2px;transition:all .3s;
+  position:absolute;left:0;
+}
+.hamburger span:nth-child(1){top:0}
+.hamburger span:nth-child(2){top:50%;transform:translateY(-50%)}
+.hamburger span:nth-child(3){bottom:0}
+
+/* ── Mobile Menu ────────────────────────────────── */
+.mobile-menu{
+  position:fixed;inset:0;background:var(--cream);z-index:2000;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.8rem;
+  transform:translateX(100%);transition:transform .4s cubic-bezier(.4,0,.2,1);
+}
+.mobile-menu.active{transform:translateX(0)}
+.mobile-menu a{
+  text-decoration:none;color:var(--dark);
+  font-family:var(--font-serif);font-size:2rem;font-weight:500;
+  transition:color .3s;
+}
+.mobile-menu a:hover{color:var(--gold)}
+.close-btn{
+  position:absolute;top:1.5rem;right:2rem;
+  background:none;border:none;font-size:2.5rem;
+  color:var(--dark);cursor:pointer;transition:color .3s;
+}
+.close-btn:hover{color:var(--gold)}
+
+/* ── Hero Banner ────────────────────────────────── */
+.services-hero{
+  position:relative;
+  min-height:60vh;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  background:var(--dark);
+}
+.services-hero::before{
+  content:'';position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?w=1920&q=80') center/cover no-repeat;
+  opacity:.35;
+  transform:scale(1.05);
+  transition:transform 8s ease;
+}
+.services-hero:hover::before{transform:scale(1.1)}
+.services-hero::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(44,51,50,.5) 0%,rgba(44,51,50,.7) 100%);
+}
+.hero-content{
+  position:relative;z-index:2;
+  max-width:800px;padding:8rem 2rem 5rem;
+}
+.hero-badge{
+  display:inline-block;
+  font-family:var(--font-sans);font-size:.72rem;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold-light);
+  margin-bottom:1.2rem;
+  padding:.5rem 1.6rem;
+  border:1px solid rgba(197,160,89,.3);
+  border-radius:50px;
+}
+.hero-content h1{
+  font-family:var(--font-serif);font-size:clamp(2.8rem,6vw,4.5rem);
+  font-weight:400;color:var(--white);
+  line-height:1.15;letter-spacing:-.01em;
+  margin-bottom:1.2rem;
+}
+.hero-content h1 em{font-style:italic;color:var(--gold-light)}
+.hero-content p{
+  font-size:1.05rem;font-weight:300;
+  color:rgba(255,255,255,.8);
+  max-width:600px;margin:0 auto;line-height:1.8;
+}
+
+/* ── Decorative Divider ─────────────────────────── */
+.section-divider{
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+  padding:3rem 0;
+}
+.section-divider span{
+  width:60px;height:1px;background:var(--sage-light);
+}
+.section-divider svg{
+  width:20px;height:20px;fill:var(--gold);opacity:.6;
+}
+
+/* ── Category Headers ───────────────────────────── */
+.category-section{
+  max-width:1300px;margin:0 auto;
+  padding:0 2rem 4rem;
+}
+.category-header{
+  text-align:center;margin-bottom:3rem;
+  opacity:0;transform:translateY(30px);
+  transition:all .8s cubic-bezier(.4,0,.2,1);
+}
+.category-header.revealed{opacity:1;transform:translateY(0)}
+.category-header h2{
+  font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.6rem);
+  font-weight:400;color:var(--dark);
+  margin-bottom:.5rem;
+}
+.category-header p{
+  font-size:.95rem;font-weight:300;color:var(--sage);
+  max-width:550px;margin:0 auto;
+}
+
+/* ── Service Cards Grid ─────────────────────────── */
+.services-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:2rem;
+  max-width:1300px;margin:0 auto;
+  padding:0 2rem 2rem;
+  justify-content:center;
+}
+.services-grid>.service-card{
+  flex:0 1 420px;
+  max-width:600px;
+}
+
+.service-card{
+  background:rgba(255,255,255,.65);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(123,138,126,.1);
+  border-radius:16px;
+  padding:2.5rem 2.2rem;
+  position:relative;
+  overflow:hidden;
+  transition:all .5s cubic-bezier(.4,0,.2,1);
+  opacity:0;transform:translateY(40px);
+}
+.service-card.revealed{opacity:1;transform:translateY(0)}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--sage),var(--gold),var(--sage-light));
+  opacity:0;transition:opacity .4s;
+}
+.service-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(44,51,50,.1),0 1px 3px rgba(44,51,50,.04);
+  border-color:rgba(197,160,89,.2);
+}
+.service-card:hover::before{opacity:1}
+
+.card-icon{
+  font-size:2.2rem;
+  width:60px;height:60px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(123,138,126,.08),rgba(197,160,89,.08));
+  border-radius:14px;
+  margin-bottom:1.4rem;
+}
+
+.card-title{
+  font-family:var(--font-serif);font-size:1.55rem;
+  font-weight:500;color:var(--dark);
+  margin-bottom:.6rem;letter-spacing:.01em;
+}
+
+.card-desc{
+  font-size:.88rem;font-weight:300;
+  color:var(--sage-dark);line-height:1.75;
+  margin-bottom:1.5rem;
+}
+
+/* ── Subtype Pills ──────────────────────────────── */
+.subtypes{
+  display:flex;flex-wrap:wrap;gap:.5rem;
+  margin-bottom:1.8rem;
+}
+.subtype-pill{
+  display:inline-block;
+  font-size:.72rem;font-weight:500;
+  letter-spacing:.03em;
+  color:var(--sage-dark);
+  background:rgba(123,138,126,.08);
+  border:1px solid rgba(123,138,126,.15);
+  padding:.4rem .9rem;
+  border-radius:50px;
+  transition:all .3s;
+  cursor:default;
+}
+.subtype-pill:hover{
+  background:rgba(197,160,89,.1);
+  border-color:rgba(197,160,89,.25);
+  color:var(--gold-dark);
+  transform:translateY(-1px);
+}
+
+/* ── CTA Button ─────────────────────────────────── */
+.btn-book-service{
+  display:inline-flex;align-items:center;gap:.5rem;
+  text-decoration:none;
+  font-family:var(--font-sans);font-size:.78rem;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--white);
+  background:var(--sage);
+  padding:.75rem 1.8rem;
+  border-radius:50px;
+  transition:all .4s cubic-bezier(.4,0,.2,1);
+  position:relative;overflow:hidden;
+}
+.btn-book-service::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+  opacity:0;transition:opacity .4s;border-radius:50px;
+}
+.btn-book-service:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(123,138,126,.3)}
+.btn-book-service:hover::before{opacity:1}
+.btn-book-service span{position:relative;z-index:1}
+.btn-book-service svg{
+  width:14px;height:14px;fill:currentColor;
+  position:relative;z-index:1;
+  transition:transform .3s;
+}
+.btn-book-service:hover svg{transform:translateX(3px)}
+
+/* ── Solo Services (no subtypes) Row ────────────── */
+.solo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+  max-width:1300px;margin:0 auto;
+  padding:0 2rem 2rem;
+}
+.solo-card{
+  background:rgba(255,255,255,.55);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(123,138,126,.1);
+  border-radius:14px;
+  padding:2rem 1.8rem;
+  text-align:center;
+  transition:all .5s cubic-bezier(.4,0,.2,1);
+  opacity:0;transform:translateY(40px);
+  position:relative;overflow:hidden;
+}
+.solo-card.revealed{opacity:1;transform:translateY(0)}
+.solo-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--sage),var(--gold),var(--sage-light));
+  opacity:0;transition:opacity .4s;
+}
+.solo-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 16px 50px rgba(44,51,50,.08);
+  border-color:rgba(197,160,89,.2);
+}
+.solo-card:hover::before{opacity:1}
+.solo-card .card-icon{margin:0 auto 1.2rem}
+.solo-card .card-title{font-size:1.35rem;margin-bottom:.5rem}
+.solo-card .card-desc{margin-bottom:1.4rem}
+.solo-card .btn-book-service{font-size:.72rem;padding:.65rem 1.5rem}
+
+/* ── Bottom CTA ─────────────────────────────────── */
+.cta-section{
+  text-align:center;
+  padding:5rem 2rem;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--cream-dark) 100%);
+  position:relative;
+}
+.cta-section h2{
+  font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);
+  font-weight:400;color:var(--dark);
+  margin-bottom:.8rem;
+}
+.cta-section p{
+  font-size:1rem;font-weight:300;color:var(--sage);
+  max-width:500px;margin:0 auto 2rem;
+}
+.btn-cta-large{
+  display:inline-flex;align-items:center;gap:.6rem;
+  text-decoration:none;
+  font-family:var(--font-sans);font-size:.85rem;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--white);
+  background:linear-gradient(135deg,var(--sage),var(--sage-dark));
+  padding:1rem 2.8rem;
+  border-radius:50px;
+  transition:all .4s;
+  box-shadow:0 4px 20px rgba(123,138,126,.3);
+}
+.btn-cta-large:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 35px rgba(123,138,126,.4);
+  background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+}
+
+/* ── Footer ─────────────────────────────────────── */
+.footer{background:var(--dark);color:rgba(255,255,255,.7);padding:4rem 0 0}
+.footer-inner{max-width:1300px;margin:0 auto;padding:0 2rem}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;
+  padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,.08);
+}
+.footer-brand h3{
+  font-family:var(--font-serif);font-size:2rem;font-weight:600;
+  color:var(--white);margin-bottom:.8rem;letter-spacing:.1em;
+}
+.footer-brand p{font-size:.88rem;line-height:1.7;max-width:350px}
+.footer-social{display:flex;gap:.8rem;margin-top:1.2rem}
+.footer-social a{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s;
+}
+.footer-social a svg{width:15px;height:15px;fill:rgba(255,255,255,.6);transition:fill .3s}
+.footer-social a:hover{border-color:var(--gold);background:rgba(197,160,89,.1)}
+.footer-social a:hover svg{fill:var(--gold)}
+.footer-nav h4{
+  font-family:var(--font-serif);font-size:1.1rem;font-weight:500;
+  color:var(--white);margin-bottom:1rem;
+}
+.footer-nav a{
+  display:block;text-decoration:none;color:rgba(255,255,255,.6);
+  font-size:.85rem;padding:.3rem 0;transition:color .3s;
+}
+.footer-nav a:hover{color:var(--gold)}
+.footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.5rem 0;flex-wrap:wrap;gap:1rem;
+}
+.footer-legal{display:flex;gap:1.5rem}
+.footer-legal a{text-decoration:none;color:rgba(255,255,255,.4);font-size:.78rem;transition:color .3s}
+.footer-legal a:hover{color:var(--gold)}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.35)}
+.brand-tag{
+  display:inline-block;margin-left:.8rem;
+  padding:.2rem .6rem;border-radius:4px;
+  background:rgba(197,160,89,.1);color:var(--gold);
+  font-size:.7rem;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+@media(max-width:1024px){
+  .nav-links{display:none}.hamburger{display:block}
+  .services-grid>.service-card{flex:0 1 100%}
+  .footer-top{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .services-hero{min-height:50vh}
+  .hero-content{padding:7rem 1.5rem 4rem}
+  .hero-content h1{font-size:2.4rem}
+  .service-card{padding:2rem 1.6rem}
+  .solo-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  .solo-grid{grid-template-columns:1fr}
+  .services-grid{padding:0 1rem 2rem}
+  .solo-grid{padding:0 1rem 2rem}
+  .category-section{padding:0 1rem 3rem}
+  .navbar-inner{padding:0 1rem}
+}
+
+/* ── Animations ─────────────────────────────────── */
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-content{animation:fadeInUp 1s cubic-bezier(.4,0,.2,1) .2s both}
+.lang-toggle{display:flex;gap:2px;align-items:center;background:rgba(123,138,126,0.12);border-radius:100px;padding:2px;flex-shrink:0}.lang-btn{padding:5px 14px;border-radius:100px;border:none;cursor:pointer;font-family:var(--font-sans);font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);background:transparent;transition:all .3s;line-height:1}.lang-btn.active{background:var(--gold);color:var(--white)}.lang-btn:hover:not(.active){background:rgba(123,138,126,0.18)}.mobile-lang-toggle{display:flex;gap:6px;margin-top:1.5rem}.mobile-lang-toggle .lang-btn{padding:10px 24px;font-size:.8rem;border-radius:100px;border:1px solid rgba(123,138,126,0.2);background:transparent;color:var(--dark);cursor:pointer;font-family:var(--font-sans);font-weight:600;letter-spacing:1.5px;transition:all .3s}.mobile-lang-toggle .lang-btn.active{background:var(--gold);color:var(--white);border-color:var(--gold)}
+</style>
+</head>
+<body>
+
+<!-- ── Navbar ──────────────────────────────────── -->
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-text">Salud Holistic Spa</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+      <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="booking.html" class="btn-book" data-i18n="nav.booking">Booking</a></li>
+      <li><a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a></li>
+      <li><a href="package-offers.html" data-i18n="nav.super">Super Offers</a></li>
+      <li><a href="reviews.html" data-i18n="nav.reviews">Reviews</a></li>
+<li><a href="contacts.html" data-i18n="nav.contacts">Contacts</a></li>
+    </ul>
+    <div class="lang-toggle"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button></div>
+<button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Mobile Menu ─────────────────────────────── -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu" aria-label="Close menu">&times;</button>
+  <a href="index.html" data-i18n="nav.home">Home</a>
+  <a href="services.html" data-i18n="nav.services">Services</a>
+  <a href="booking.html">Booking</a>
+  <a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a>
+  <a href="package-offers.html" data-i18n="nav.super">Super Offers</a>
+  <a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+<a href="contacts.html" data-i18n="nav.contacts">Contacts</a>
+</div>
+
+<!-- ── Hero Banner ─────────────────────────────── -->
+<section class="services-hero">
+  <div class="hero-content">
+    <div class="hero-badge">Holistic Wellness</div>
+    <h1 data-i18n="sv.hero.h1">Our <em>Services</em></h1>
+    <p>Comprehensive wellness treatments crafted for your mind, body, and spirit. Each therapy is designed to restore balance and elevate your well-being.</p>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Injectable & Advanced Treatments
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s1.h2">Injectable &amp; Advanced Treatments</h2>
+    <p>Targeted clinical therapies for rejuvenation and body sculpting</p>
+  </div>
+</div>
+
+<div class="services-grid">
+
+  <!-- Carboxytherapy -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F489;</div>
+    <h3 class="card-title" data-i18n="sv.c1.h3">Carboxytherapy</h3>
+    <p class="card-desc" data-i18n="sv.c1.p">Infusion of medical-grade CO2 beneath the skin to stimulate circulation, boost collagen production, and target stubborn aesthetic concerns with precision.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Cellulite Reduction</span>
+      <span class="subtype-pill">Dark Circle Treatment</span>
+      <span class="subtype-pill">Stretch Mark Therapy</span>
+      <span class="subtype-pill">Skin Rejuvenation</span>
+      <span class="subtype-pill">Localized Fat Reduction</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Mesotherapy -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F489;</div>
+    <h3 class="card-title" data-i18n="sv.c2.h3">Mesotherapy</h3>
+    <p class="card-desc" data-i18n="sv.c2.p">Micro-injections of vitamins, enzymes, and amino acids delivered directly to target areas to nourish, tighten, and revitalize skin, body, and hair.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Body Mesotherapy</span>
+      <span class="subtype-pill">Facial Mesotherapy</span>
+      <span class="subtype-pill">Hair Mesotherapy</span>
+      <span class="subtype-pill">Cellulite Treatment</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Massage Therapies
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s2.h2">Massage Therapies</h2>
+    <p>Therapeutic bodywork traditions from around the world, tailored to your needs</p>
+  </div>
+</div>
+
+<div class="services-grid">
+
+  <!-- Massage Therapies -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F486;</div>
+    <h3 class="card-title" data-i18n="sv.c3.h3">Massage Therapies</h3>
+    <p class="card-desc" data-i18n="sv.c3.p">An extensive collection of hands-on healing modalities, from deep tissue release to gentle prenatal care. Each session is customized to dissolve tension and restore harmony.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Deep Tissue Massage</span>
+      <span class="subtype-pill">Swedish Massage</span>
+      <span class="subtype-pill">Hot Stone with Lymphatic Massage</span>
+      <span class="subtype-pill">Aromatherapy Massage</span>
+      <span class="subtype-pill">Sports Massage</span>
+      <span class="subtype-pill">Prenatal Massage</span>
+      <span class="subtype-pill">Lymphatic Drainage Massage</span>
+      <span class="subtype-pill">Reflexology</span>
+      <span class="subtype-pill">Shiatsu Massage</span>
+      <span class="subtype-pill">Thai Massage</span>
+      <span class="subtype-pill">Trigger Point Therapy</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Detox & Internal Wellness
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s3.h2">Detox &amp; Internal Wellness</h2>
+    <p>Deep-cleansing therapies to purify from within and restore vitality</p>
+  </div>
+</div>
+
+<div class="services-grid">
+
+  <!-- Colon Hydrotherapy -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F33F;</div>
+    <h3 class="card-title" data-i18n="sv.c4.h3">Colon Hydrotherapy</h3>
+    <p class="card-desc" data-i18n="sv.c4.p">Gentle, temperature-controlled water cleansing to detoxify the colon, improve digestion, and support the body's natural elimination processes.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Basic Colonic</span>
+      <span class="subtype-pill">Colonic + Coffee Enema</span>
+      <span class="subtype-pill">Colonic + Probiotic Implant</span>
+      <span class="subtype-pill">Colonic + Herbal Infusion</span>
+      <span class="subtype-pill">Colonic + Garlic Enema</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Liver & Gallbladder Detox -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F33F;</div>
+    <h3 class="card-title" data-i18n="sv.c5.h3">Liver &amp; Gallbladder Detox</h3>
+    <p class="card-desc" data-i18n="sv.c5.p">A guided cleansing protocol designed to support liver function, promote bile flow, and help the body flush toxins for renewed energy and clarity.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Facial Treatments
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s4.h2">Facial Treatments</h2>
+    <p>Luxurious skin therapies to reveal your natural radiance</p>
+  </div>
+</div>
+
+<div class="services-grid">
+
+  <!-- Facial Treatments -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F9D6;</div>
+    <h3 class="card-title" data-i18n="sv.c6.h3">Facial Treatments</h3>
+    <p class="card-desc" data-i18n="sv.c6.p">A curated menu of results-driven facials, from classic cleansing rituals to advanced clinical treatments. Each is tailored to your unique skin type and concerns.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Classic Facial</span>
+      <span class="subtype-pill">Deep Cleansing Facial</span>
+      <span class="subtype-pill">Anti-Aging Facial</span>
+      <span class="subtype-pill">Hydrafacial</span>
+      <span class="subtype-pill">Chemical Peel</span>
+      <span class="subtype-pill">Microdermabrasion</span>
+      <span class="subtype-pill">LED Light Therapy</span>
+      <span class="subtype-pill">Oxygen Facial</span>
+      <span class="subtype-pill">Vitamin C Facial</span>
+      <span class="subtype-pill">Collagen Facial</span>
+      <span class="subtype-pill">Acne Treatment Facial</span>
+      <span class="subtype-pill">Brightening Facial</span>
+      <span class="subtype-pill">Microneedling</span>
+      <span class="subtype-pill">Dermaplaning</span>
+      <span class="subtype-pill">Custom Facial</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Laser & Technology
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s5.h2">Laser &amp; Technology</h2>
+    <p>Cutting-edge devices for precision body sculpting, hair removal, and skin renewal</p>
+  </div>
+</div>
+
+<div class="services-grid">
+
+  <!-- Laser Hair Removal -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x2728;</div>
+    <h3 class="card-title" data-i18n="sv.c7.h3">Laser Hair Removal</h3>
+    <p class="card-desc" data-i18n="sv.c7.p">Advanced laser technology for safe, effective, and long-lasting hair reduction on all skin types. Achieve silky-smooth results with each progressive session.</p>
+    <div class="subtypes">
+      <span class="subtype-pill">Full Face</span>
+      <span class="subtype-pill">Underarms</span>
+      <span class="subtype-pill">Bikini Line</span>
+      <span class="subtype-pill">Full Legs</span>
+      <span class="subtype-pill">Full Arms</span>
+      <span class="subtype-pill">Back</span>
+      <span class="subtype-pill">Chest</span>
+      <span class="subtype-pill">Brazilian</span>
+    </div>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Ultrasound Cavitation -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F52C;</div>
+    <h3 class="card-title" data-i18n="sv.c8.h3">Ultrasound Cavitation</h3>
+    <p class="card-desc" data-i18n="sv.c8.p">Non-invasive body contouring that uses ultrasonic waves to break down stubborn fat cells, promoting natural elimination for a slimmer, more sculpted silhouette.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Infrared Body Wrap -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x1F52C;</div>
+    <h3 class="card-title" data-i18n="sv.c9.h3">Infrared Body Wrap</h3>
+    <p class="card-desc" data-i18n="sv.c9.p">Therapeutic infrared heat therapy that penetrates deep into tissues to accelerate detoxification, reduce inflammation, and promote calorie burn while you relax.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Low-Level Laser Therapy -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x2728;</div>
+    <h3 class="card-title" data-i18n="sv.c10.h3">Low-Level Laser Therapy</h3>
+    <p class="card-desc" data-i18n="sv.c10.p">Cold laser photobiomodulation that stimulates cellular repair, reduces pain and inflammation, and accelerates healing at the deepest tissue level.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Laser Skin Tightening -->
+  <div class="service-card" data-reveal>
+    <div class="card-icon">&#x2728;</div>
+    <h3 class="card-title" data-i18n="sv.c11.h3">Laser Skin Tightening</h3>
+    <p class="card-desc" data-i18n="sv.c11.p">Non-surgical collagen-stimulating laser treatment that firms and lifts sagging skin, restoring youthful contours to the face, neck, and body.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════
+     SECTION: Nutrition & Wellness Support
+     ════════════════════════════════════════════════ -->
+<div class="section-divider">
+  <span></span>
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+  <span></span>
+</div>
+
+<div class="category-section">
+  <div class="category-header" data-reveal>
+    <h2 data-i18n="sv.s6.h2">Nutrition &amp; Wellness Support</h2>
+    <p>Holistic guidance and supplementation for lasting health transformation</p>
+  </div>
+</div>
+
+<div class="solo-grid">
+
+  <!-- B-Complex Injection -->
+  <div class="solo-card" data-reveal>
+    <div class="card-icon">&#x1F48A;</div>
+    <h3 class="card-title" data-i18n="sv.c12.h3">B-Complex Injection</h3>
+    <p class="card-desc" data-i18n="sv.c12.p">A potent vitamin B-complex boost delivered intramuscularly for immediate energy, enhanced metabolism, and nervous system support.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Nutritional Plan -->
+  <div class="solo-card" data-reveal>
+    <div class="card-icon">&#x1F957;</div>
+    <h3 class="card-title" data-i18n="sv.c13.h3">Nutritional Plan</h3>
+    <p class="card-desc" data-i18n="sv.c13.p">Personalized dietary guidance crafted by our wellness experts to complement your treatments and support your health goals from the inside out.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+  <!-- Wellness Consultation -->
+  <div class="solo-card" data-reveal>
+    <div class="card-icon">&#x1F3E5;</div>
+    <h3 class="card-title" data-i18n="sv.c14.h3">Wellness Consultation</h3>
+    <p class="card-desc" data-i18n="sv.c14.p">A comprehensive one-on-one assessment where our specialists evaluate your health, discuss your goals, and design a personalized wellness roadmap.</p>
+    <a href="package-offers.html" class="btn-book-service">
+      <span>See Our Super Offers</span>
+      <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
+</div>
+
+<!-- ── Bottom CTA ──────────────────────────────── -->
+<section class="cta-section">
+  <h2 data-i18n="sv.cta.h2">Ready to Begin Your <em>Wellness Journey</em>?</h2>
+  <p>Book your appointment today and experience the transformative power of holistic healing.</p>
+  <a href="package-offers.html" class="btn-cta-large">
+    See Our Super Offers
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</section>
+
+<!-- ── Footer ──────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>SALUD!</h3>
+        <p data-i18n="footer.brand.desc">A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.youtube.com/@saludholisticspa" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <h4 data-i18n="footer.quick">Quick Links</h4>
+        <a href="services.html">Our Services</a>
+        <a href="booking.html" data-i18n="footer.book">Book Appointment</a>
+        <a href="exclusive-offers.html" data-i18n="footer.exclusive">Today's Exclusive Offers</a>
+        <a href="package-offers.html" data-i18n="footer.packages">Package Super Offers</a>
+        <a href="contacts.html" data-i18n="footer.contact">Contact Us</a>
+      </div>
+      <div class="footer-nav">
+        <h4 data-i18n="footer.connect">Connect</h4>
+        <a href="tel:+16465409032">+1 (646) 540.9032</a>
+        <a href="tel:+16465409032">SMS: +1 (646) 540.9032</a>
+<a href="mailto:customerservice@saludholisticspa.com">customerservice@saludholisticspa.com</a>
+<a href="https://www.instagram.com/saludholisticspa" target="_blank">@saludholisticspa</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="refund.html">Refund Policy</a>
+      </div>
+      <div class="footer-copy">
+        &copy; 2025 Salud Holistic Spa. All rights reserved.
+        <span class="brand-tag">Powered by Revenuiva AI</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Scripts ─────────────────────────────────── -->
+<script>
+// Navbar scroll behavior
+const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll > 60) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  lastScroll = currentScroll;
+}, { passive: true });
+
+// Mobile menu
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const closeMenu = document.getElementById('closeMenu');
+
+hamburgerBtn.addEventListener('click', () => {
+  mobileMenu.classList.add('active');
+  document.body.style.overflow = 'hidden';
+});
+closeMenu.addEventListener('click', () => {
+  mobileMenu.classList.remove('active');
+  document.body.style.overflow = '';
+});
+mobileMenu.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+    document.body.style.overflow = '';
+  });
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('[data-reveal]');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      // Stagger the animation for cards in the same grid
+      const parent = entry.target.parentElement;
+      const siblings = Array.from(parent.querySelectorAll('[data-reveal]'));
+      const cardIndex = siblings.indexOf(entry.target);
+      const delay = cardIndex * 120;
+
+      setTimeout(() => {
+        entry.target.classList.add('revealed');
+      }, delay);
+
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.1,
+  rootMargin: '0px 0px -40px 0px'
+});
+
+revealElements.forEach(el => revealObserver.observe(el));
+</script>
+<script src="https://client.revenuivaai.com/chatbot/widget/rv_z4wDeLbXbzj3XPZBz8EgWAgZtRTDdWsL5MoJQVOc.js" async></script>
+
+<script src="assets/lang.js"></script>
+</body>
+</html>

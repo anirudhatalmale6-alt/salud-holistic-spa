@@ -50,10 +50,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-links .btn-book{background:var(--sage);color:var(--white)!important;padding:10px 28px;border-radius:100px;letter-spacing:1.5px;font-weight:500;transition:all .4s}
 .nav-links .btn-book::after{display:none}
 .nav-links .btn-book:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,160,89,0.3)}
-.nav-social{display:flex;gap:16px;align-items:center}
-.nav-social a{color:var(--dark);transition:color .3s,transform .3s}
-.nav-social a:hover{color:var(--gold);transform:translateY(-2px)}
-.nav-social svg{width:18px;height:18px;fill:currentColor}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:24px;height:2px;background:var(--dark);margin:5px 0;transition:all .3s}
 .mobile-menu{display:none;position:fixed;inset:0;background:rgba(249,247,242,0.97);backdrop-filter:blur(30px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .4s}
@@ -210,8 +206,7 @@ section{position:relative}
 .footer-top{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-.nav-links,.nav-social{display:none}
-.hamburger{display:block}
+.nav-links{display:none}.hamburger{display:block}
 .mobile-menu{display:flex}
 .offers-grid{grid-template-columns:1fr}
 .countdown-inner{flex-direction:column;gap:8px}
@@ -222,6 +217,7 @@ section{position:relative}
 .section-pad{padding:80px 5%}
 .offers-section{padding:60px 5% 40px}
 }
+.lang-toggle{display:flex;gap:2px;align-items:center;background:rgba(123,138,126,0.12);border-radius:100px;padding:2px;flex-shrink:0}.lang-btn{padding:5px 14px;border-radius:100px;border:none;cursor:pointer;font-family:var(--font-sans);font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);background:transparent;transition:all .3s;line-height:1}.lang-btn.active{background:var(--gold);color:var(--white)}.lang-btn:hover:not(.active){background:rgba(123,138,126,0.18)}.mobile-lang-toggle{display:flex;gap:6px;margin-top:1.5rem}.mobile-lang-toggle .lang-btn{padding:10px 24px;font-size:.8rem;border-radius:100px;border:1px solid rgba(123,138,126,0.2);background:transparent;color:var(--dark);cursor:pointer;font-family:var(--font-sans);font-weight:600;letter-spacing:1.5px;transition:all .3s}.mobile-lang-toggle .lang-btn.active{background:var(--gold);color:var(--white);border-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -233,17 +229,15 @@ section{position:relative}
 <span class="nav-logo-text">Salud Holistic Spa</span>
 </a>
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="booking.html" class="btn-book">Booking</a></li>
-<li><a href="exclusive-offers.html">Exclusive Offers</a></li>
-<li><a href="package-offers.html">Super Offers</a></li>
-<li><a href="contacts.html">Contacts</a></li>
+<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+<li><a href="services.html" data-i18n="nav.services">Services</a></li>
+<li><a href="booking.html" class="btn-book" data-i18n="nav.booking">Booking</a></li>
+<li><a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a></li>
+<li><a href="package-offers.html" data-i18n="nav.super">Super Offers</a></li>
+<li><a href="reviews.html" data-i18n="nav.reviews">Reviews</a></li>
+<li><a href="contacts.html" data-i18n="nav.contacts">Contacts</a></li>
 </ul>
-<div class="nav-social">
-<a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-<a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-<a href="https://www.youtube.com/@saludholisticspa" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-</div>
+<div class="lang-toggle"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button></div>
 <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
 <span></span><span></span><span></span>
 </button>
@@ -253,11 +247,13 @@ section{position:relative}
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
 <button class="close-btn" id="closeMenu" aria-label="Close menu">&times;</button>
-<a href="index.html">Home</a>
+<a href="index.html" data-i18n="nav.home">Home</a>
+<a href="services.html" data-i18n="nav.services">Services</a>
 <a href="booking.html">Booking</a>
-<a href="exclusive-offers.html">Exclusive Offers</a>
-<a href="package-offers.html">Super Offers</a>
-<a href="contacts.html">Contacts</a>
+<a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a>
+<a href="package-offers.html" data-i18n="nav.super">Super Offers</a>
+<a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+<a href="contacts.html" data-i18n="nav.contacts">Contacts</a>
 </div>
 
 <!-- ============ HERO BANNER ============ -->
@@ -265,7 +261,7 @@ section{position:relative}
 <div class="page-hero-bg"></div>
 <div class="page-hero-content">
 <p class="page-hero-eyebrow">Limited Time Only</p>
-<h1>Today's Exclusive Offers</h1>
+<h1 data-i18n="ex.h1">Today's Exclusive Offers</h1>
 <p>Limited-time wellness deals, refreshed daily.</p>
 </div>
 </section>
@@ -295,7 +291,7 @@ section{position:relative}
 <span class="savings-badge">Save 60%</span>
 </div>
 <div class="offer-card-body">
-<h3>Colon Hydrotherapy Treatment</h3>
+<h3 data-i18n="ex.o1.h3">Colon Hydrotherapy Treatment</h3>
 <p class="offer-card-desc">Gentle internal cleansing to detoxify, improve digestion, and restore gut wellness.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="59" data-name="Colon Hydrotherapy - 1 Session">
@@ -321,7 +317,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -332,7 +328,7 @@ section{position:relative}
 <span class="savings-badge">Save 44%</span>
 </div>
 <div class="offer-card-body">
-<h3>Lymphatic Drainage Massage</h3>
+<h3 data-i18n="ex.o2.h3">Lymphatic Drainage Massage</h3>
 <p class="offer-card-desc">Specialized technique to reduce swelling, boost immunity, and promote natural detoxification.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="99" data-name="Lymphatic Drainage - 1 Session">
@@ -358,7 +354,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -369,7 +365,7 @@ section{position:relative}
 <span class="savings-badge">Save 52%</span>
 </div>
 <div class="offer-card-body">
-<h3>Lymphatic Drainage With Cavitation</h3>
+<h3 data-i18n="ex.o3.h3">Lymphatic Drainage With Cavitation</h3>
 <p class="offer-card-desc">Advanced lymphatic therapy combined with ultrasonic cavitation for enhanced fat reduction and body contouring.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="159" data-name="Lymphatic + Cavitation - 1 Session">
@@ -395,7 +391,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -406,7 +402,7 @@ section{position:relative}
 <span class="savings-badge">Save 53%</span>
 </div>
 <div class="offer-card-body">
-<h3>60-Minute Massage Treatments</h3>
+<h3 data-i18n="ex.o4.h3">60-Minute Massage Treatments</h3>
 <p class="offer-card-desc">Choose wood therapy, Swedish, or deep tissue massage. Expert therapists tailored to your needs.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="89" data-name="60-Min Massage - 1 Session">
@@ -432,7 +428,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -443,7 +439,7 @@ section{position:relative}
 <span class="savings-badge">Save 71%</span>
 </div>
 <div class="offer-card-body">
-<h3>Low Laser-Lipo Treatments</h3>
+<h3 data-i18n="ex.o5.h3">Low Laser-Lipo Treatments</h3>
 <p class="offer-card-desc">Non-invasive laser technology to target stubborn fat cells and sculpt your ideal body contour.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="149" data-name="Laser-Lipo - 4 Sessions">
@@ -480,7 +476,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -491,7 +487,7 @@ section{position:relative}
 <span class="savings-badge">Save 40%</span>
 </div>
 <div class="offer-card-body">
-<h3>Carboxy Facial Rejuvenation</h3>
+<h3 data-i18n="ex.o6.h3">Carboxy Facial Rejuvenation</h3>
 <p class="offer-card-desc">CO2 infusion therapy to stimulate collagen, reduce dark circles, and restore youthful radiance.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="80" data-name="Carboxy Facial - 1 Session">
@@ -517,7 +513,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -528,7 +524,7 @@ section{position:relative}
 <span class="savings-badge">Save 59%</span>
 </div>
 <div class="offer-card-body">
-<h3>Anti-Aging Facial</h3>
+<h3 data-i18n="ex.o7.h3">Anti-Aging Facial</h3>
 <p class="offer-card-desc">Radio-frequency skin tightening paired with Vitamin C serum to reverse signs of aging and firm your complexion.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="90" data-name="Anti-Aging Facial - 1 Session">
@@ -554,7 +550,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -565,7 +561,7 @@ section{position:relative}
 <span class="savings-badge">Save 57%</span>
 </div>
 <div class="offer-card-body">
-<h3>Microdermabrasion Facial &amp; Deep-Pore Cleansing</h3>
+<h3 data-i18n="ex.o8.h3">Microdermabrasion Facial &amp; Deep-Pore Cleansing</h3>
 <p class="offer-card-desc">Crystal exfoliation combined with deep extraction for smoother, brighter, and healthier-looking skin.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="99" data-name="Microdermabrasion - 1 Session">
@@ -591,7 +587,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -602,7 +598,7 @@ section{position:relative}
 <span class="savings-badge">Save 52%</span>
 </div>
 <div class="offer-card-body">
-<h3>Carboxytherapy or Mesotherapy</h3>
+<h3 data-i18n="ex.o9.h3">Carboxytherapy or Mesotherapy</h3>
 <p class="offer-card-desc">Targeted treatment for fat reduction, skin tightening, and cellulite elimination using CO2 or micro-injections.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="80" data-name="Carboxy/Meso - 1 Session">
@@ -639,7 +635,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -650,7 +646,7 @@ section{position:relative}
 <span class="savings-badge">Save 63%</span>
 </div>
 <div class="offer-card-body">
-<h3>Laser Hair-Removal</h3>
+<h3 data-i18n="ex.o10.h3">Laser Hair-Removal</h3>
 <p class="offer-card-desc">Permanent hair reduction for small areas using advanced laser technology. Smooth, lasting results.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="59" data-name="Laser Hair-Removal - 1 Session (Small Area)">
@@ -665,7 +661,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -676,7 +672,7 @@ section{position:relative}
 <span class="savings-badge">Save 51%</span>
 </div>
 <div class="offer-card-body">
-<h3>Infrared Body Wrap</h3>
+<h3 data-i18n="ex.o11.h3">Infrared Body Wrap</h3>
 <p class="offer-card-desc">Burn calories through deep sweating with infrared heat therapy. Detoxify, relax, and slim down naturally.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="49" data-name="Infrared Body Wrap - 1 Session">
@@ -691,7 +687,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -702,7 +698,7 @@ section{position:relative}
 <span class="savings-badge">Save $200+</span>
 </div>
 <div class="offer-card-body">
-<h3>Full Body Carboxy Treatment</h3>
+<h3 data-i18n="ex.o12.h3">Full Body Carboxy Treatment</h3>
 <p class="offer-card-desc">The Full Body Carboxy Treatment is an advanced aesthetic procedure designed to rejuvenate and revitalize the skin across the entire body.</p>
 <div class="pricing-tiers">
 <div class="tier-option selected" data-price="250" data-name="Full Body Carboxy - 1 Session">
@@ -728,7 +724,7 @@ section{position:relative}
 </div>
 </div>
 </div>
-<button class="btn-offer">Order Now</button>
+<button class="btn-offer" data-i18n="ex.ordernow">Order Now</button>
 </div>
 </div>
 
@@ -737,16 +733,16 @@ section{position:relative}
 
 <!-- Fine Print -->
 <div class="fine-print reveal">
-<p>All purchases are final. See our <a href="refund.html">Non-Refund Policy</a> for details. Offers are subject to availability and may change without notice.</p>
+<p>All purchases are final. See our <a href="refund.html" data-i18n="footer.refund">Non-Refund Policy</a> for details. Offers are subject to availability and may change without notice.</p>
 </div>
 
 <!-- ============ CTA BANNER ============ -->
 <section class="cta-banner">
 <div class="cta-banner-bg"></div>
 <div class="cta-banner-content reveal">
-<h2>Book Your Escape Today</h2>
-<p>Let us craft your personalized wellness journey.</p>
-<a href="booking.html" class="hero-cta">Reserve Your Session</a>
+<h2 data-i18n="cta.h2">Book Your Escape Today</h2>
+<p data-i18n="cta.p">Let us craft your personalized wellness journey.</p>
+<a href="booking.html" class="hero-cta" data-i18n="cta.btn">Reserve Your Session</a>
 </div>
 </section>
 
@@ -756,7 +752,7 @@ section{position:relative}
 <div class="footer-top">
 <div class="footer-brand">
 <h3>SALUD!</h3>
-<p>A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
+<p data-i18n="footer.brand.desc">A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
 <div class="footer-social">
 <a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -764,15 +760,15 @@ section{position:relative}
 </div>
 </div>
 <div class="footer-nav">
-<h4>Quick Links</h4>
-<a href="booking.html">Book Appointment</a>
-<a href="exclusive-offers.html">Today's Exclusive Offers</a>
-<a href="package-offers.html">Package Super Offers</a>
-<a href="contacts.html">Contact Us</a>
+<h4 data-i18n="footer.quick">Quick Links</h4>
+<a href="booking.html" data-i18n="footer.book">Book Appointment</a>
+<a href="exclusive-offers.html" data-i18n="footer.exclusive">Today's Exclusive Offers</a>
+<a href="package-offers.html" data-i18n="footer.packages">Package Super Offers</a>
+<a href="contacts.html" data-i18n="footer.contact">Contact Us</a>
 </div>
 <div class="footer-nav">
-<h4>Connect</h4>
-<a href="tel:+19177639480">+1 (917) 763.9480</a>
+<h4 data-i18n="footer.connect">Connect</h4>
+<a href="tel:+16465409032">+1 (646) 540.9032</a>
 <a href="sms:+16465409032">SMS: +1 (646) 540.9032</a>
 <a href="mailto:customerservice@saludholisticspa.com">customerservice@saludholisticspa.com</a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank">@saludholisticspa</a>
@@ -780,9 +776,9 @@ section{position:relative}
 </div>
 <div class="footer-bottom">
 <div class="footer-legal">
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms and Conditions</a>
-<a href="refund.html">Non-Refund Policy</a>
+<a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+<a href="terms.html" data-i18n="footer.terms">Terms and Conditions</a>
+<a href="refund.html" data-i18n="footer.refund">Non-Refund Policy</a>
 </div>
 <div class="footer-copy">
 2026 &copy; Salud! Holistic SPA LLC. All rights reserved.
@@ -797,7 +793,7 @@ section{position:relative}
 <div class="pay-card">
 <button class="pay-close" id="payClose">&times;</button>
 <div id="payForm">
-<h3>Complete Your Order</h3>
+<h3 data-i18n="pay.title">Complete Your Order</h3>
 <p class="pay-service" id="payService"></p>
 <div class="pay-amount"><span class="amt" id="payAmount"></span><span class="lbl">Total</span></div>
 <div id="card-element"></div>
@@ -807,7 +803,7 @@ section{position:relative}
 </div>
 <div class="pay-success" id="paySuccess">
 <div class="check-icon"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg></div>
-<h3>Payment Successful!</h3>
+<h3 data-i18n="pay.success.h3">Payment Successful!</h3>
 <p>Your order has been confirmed. Book your appointment now.</p>
 <a href="booking.html" class="btn-book-now">Book Your Appointment</a>
 </div>
@@ -907,5 +903,7 @@ openPayModal(selected.getAttribute('data-name'),selected.getAttribute('data-pric
 });
 });
 </script>
+<script src="assets/lang.js"></script>
+<script src="https://client.revenuivaai.com/chatbot/widget/rv_z4wDeLbXbzj3XPZBz8EgWAgZtRTDdWsL5MoJQVOc.js" async></script>
 </body>
 </html>

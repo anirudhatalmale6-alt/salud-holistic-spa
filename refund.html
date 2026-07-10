@@ -49,10 +49,6 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .nav-links .btn-book{background:var(--sage);color:var(--white)!important;padding:10px 28px;border-radius:100px;letter-spacing:1.5px;font-weight:500;transition:all .4s}
 .nav-links .btn-book::after{display:none}
 .nav-links .btn-book:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 8px 25px rgba(197,160,89,0.3)}
-.nav-social{display:flex;gap:16px;align-items:center}
-.nav-social a{color:var(--dark);transition:color .3s,transform .3s}
-.nav-social a:hover{color:var(--gold);transform:translateY(-2px)}
-.nav-social svg{width:18px;height:18px;fill:currentColor}
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:4px}
 .hamburger span{display:block;width:24px;height:2px;background:var(--dark);margin:5px 0;transition:all .3s}
 .mobile-menu{display:none;position:fixed;inset:0;background:rgba(249,247,242,0.97);backdrop-filter:blur(30px);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .4s}
@@ -121,8 +117,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .footer-top{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
-.nav-links,.nav-social{display:none}
-.hamburger{display:block}
+.nav-links{display:none}.hamburger{display:block}
 .mobile-menu{display:flex}
 .legal-card{padding:2rem 1.5rem}
 .footer-top{grid-template-columns:1fr}
@@ -131,6 +126,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 .footer-copy{text-align:center}
 .legal-section{padding:50px 5%}
 }
+.lang-toggle{display:flex;gap:2px;align-items:center;background:rgba(123,138,126,0.12);border-radius:100px;padding:2px;flex-shrink:0}.lang-btn{padding:5px 14px;border-radius:100px;border:none;cursor:pointer;font-family:var(--font-sans);font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--dark);background:transparent;transition:all .3s;line-height:1}.lang-btn.active{background:var(--gold);color:var(--white)}.lang-btn:hover:not(.active){background:rgba(123,138,126,0.18)}.mobile-lang-toggle{display:flex;gap:6px;margin-top:1.5rem}.mobile-lang-toggle .lang-btn{padding:10px 24px;font-size:.8rem;border-radius:100px;border:1px solid rgba(123,138,126,0.2);background:transparent;color:var(--dark);cursor:pointer;font-family:var(--font-sans);font-weight:600;letter-spacing:1.5px;transition:all .3s}.mobile-lang-toggle .lang-btn.active{background:var(--gold);color:var(--white);border-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -142,17 +138,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 <span class="nav-logo-text">Salud Holistic Spa</span>
 </a>
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="booking.html" class="btn-book">Booking</a></li>
-<li><a href="exclusive-offers.html">Exclusive Offers</a></li>
-<li><a href="package-offers.html">Super Offers</a></li>
-<li><a href="contacts.html">Contacts</a></li>
+<li><a href="index.html" data-i18n="nav.home">Home</a></li>
+<li><a href="services.html" data-i18n="nav.services">Services</a></li>
+<li><a href="booking.html" class="btn-book" data-i18n="nav.booking">Booking</a></li>
+<li><a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a></li>
+<li><a href="package-offers.html" data-i18n="nav.super">Super Offers</a></li>
+<li><a href="reviews.html" data-i18n="nav.reviews">Reviews</a></li>
+<li><a href="contacts.html" data-i18n="nav.contacts">Contacts</a></li>
 </ul>
-<div class="nav-social">
-<a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-<a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-<a href="https://www.youtube.com/@saludholisticspa" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-</div>
+<div class="lang-toggle"><button class="lang-btn" data-lang="en">EN</button><button class="lang-btn" data-lang="es">ES</button></div>
 <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
 <span></span><span></span><span></span>
 </button>
@@ -162,17 +156,19 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 <!-- Mobile Menu -->
 <div class="mobile-menu" id="mobileMenu">
 <button class="close-btn" id="closeMenu" aria-label="Close menu">&times;</button>
-<a href="index.html">Home</a>
+<a href="index.html" data-i18n="nav.home">Home</a>
+<a href="services.html" data-i18n="nav.services">Services</a>
 <a href="booking.html">Booking</a>
-<a href="exclusive-offers.html">Exclusive Offers</a>
-<a href="package-offers.html">Super Offers</a>
-<a href="contacts.html">Contacts</a>
+<a href="exclusive-offers.html" data-i18n="nav.exclusive">Exclusive Offers</a>
+<a href="package-offers.html" data-i18n="nav.super">Super Offers</a>
+<a href="reviews.html" data-i18n="nav.reviews">Reviews</a>
+<a href="contacts.html" data-i18n="nav.contacts">Contacts</a>
 </div>
 
 <!-- ============ LEGAL HERO ============ -->
 <section class="legal-hero">
 <div class="legal-hero-content">
-<h1>Non-Refund Policy</h1>
+<h1 data-i18n="rf.h1">Non-Refund Policy</h1>
 <p>All Sales Are Final</p>
 </div>
 </section>
@@ -203,7 +199,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 <p>By completing a purchase or booking with Salud! Holistic SPA, you acknowledge that you have read, understood, and agree to this Non-Refund Policy.</p>
 <p>For questions about this policy, contact us at
 <a href="mailto:customerservice@saludholisticspa.com">customerservice@saludholisticspa.com</a> or call
-<a href="tel:+19177639480">+1 (917) 763.9480</a></p>
+<a href="tel:+16465409032">+1 (646) 540.9032</a></p>
 </div>
 
 </div>
@@ -215,7 +211,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 <div class="footer-top">
 <div class="footer-brand">
 <h3>SALUD!</h3>
-<p>A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
+<p data-i18n="footer.brand.desc">A holistic wellness destination where ancient healing meets modern luxury. A soothing wellness spa experience in the Bronx.</p>
 <div class="footer-social">
 <a href="https://www.facebook.com/saludholisticspabronx" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
@@ -223,15 +219,15 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 </div>
 </div>
 <div class="footer-nav">
-<h4>Quick Links</h4>
-<a href="booking.html">Book Appointment</a>
-<a href="exclusive-offers.html">Today's Exclusive Offers</a>
-<a href="package-offers.html">Package Super Offers</a>
-<a href="contacts.html">Contact Us</a>
+<h4 data-i18n="footer.quick">Quick Links</h4>
+<a href="booking.html" data-i18n="footer.book">Book Appointment</a>
+<a href="exclusive-offers.html" data-i18n="footer.exclusive">Today's Exclusive Offers</a>
+<a href="package-offers.html" data-i18n="footer.packages">Package Super Offers</a>
+<a href="contacts.html" data-i18n="footer.contact">Contact Us</a>
 </div>
 <div class="footer-nav">
-<h4>Connect</h4>
-<a href="tel:+19177639480">+1 (917) 763.9480</a>
+<h4 data-i18n="footer.connect">Connect</h4>
+<a href="tel:+16465409032">+1 (646) 540.9032</a>
 <a href="sms:+16465409032">SMS: +1 (646) 540.9032</a>
 <a href="mailto:customerservice@saludholisticspa.com">customerservice@saludholisticspa.com</a>
 <a href="https://www.instagram.com/saludholisticspa" target="_blank">@saludholisticspa</a>
@@ -239,9 +235,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;b
 </div>
 <div class="footer-bottom">
 <div class="footer-legal">
-<a href="privacy.html">Privacy Policy</a>
-<a href="terms.html">Terms and Conditions</a>
-<a href="refund.html">Non-Refund Policy</a>
+<a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a>
+<a href="terms.html" data-i18n="footer.terms">Terms and Conditions</a>
+<a href="refund.html" data-i18n="footer.refund">Non-Refund Policy</a>
 </div>
 <div class="footer-copy">
 2026 &copy; Salud! Holistic SPA LLC. All rights reserved.
@@ -269,5 +265,6 @@ const reveals=document.querySelectorAll('.reveal');
 const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.15,rootMargin:'0px 0px -50px 0px'});
 reveals.forEach(el=>observer.observe(el));
 </script>
+<script src="assets/lang.js"></script>
 </body>
 </html>
